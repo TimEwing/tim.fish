@@ -5,5 +5,5 @@ gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-SQLAlchemy @ file:///tmp/build/80754af9/sqlalchemy_1593446299926/work
+SQLAlchemy==1.3.18
 Werkzeug==1.0.1
