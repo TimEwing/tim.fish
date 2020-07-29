@@ -1,11 +1,36 @@
+
 $( document ).ready(function() {
-  $('.testy').click(function(event){
+  // When internal navigation links are clicked, only update the content of the 
+  // page while allowing the forward and back buttons to continue working
+  $(".internal-nav").click(function(event){
     event.preventDefault();
-    console.log($(this).prop('href'));
-    history.pushState({}, "test", $(this).prop('href'));
+    linkHREF = $(this).prop("href");
+    currentHREF = $(document.location).prop("href");
+    if(linkHREF != currentHREF) {
+      history.pushState({}, "", linkHREF);
+      internalNav(linkHREF);
+    }
   });
 
   $(window).bind("popstate", function() {
-    console.log($(document.location).prop('href'));
+    internalNav($(document.location).prop("href"));
   });
+
+  // Replace the content div with content retrieved by ajax
+  function internalNav(url) {
+    $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "json", // Parse response as json
+      success: function(data) {
+        $("#title").prop("innerHTML", data.title);
+        $("#content").prop("innerHTML", data.content);
+      },
+    });
+  }
+
+  // When the page first loads, load whatever page was passed in as {{ target }}
+  target = $("#target").text();
+  history.pushState({}, "", target);
+  internalNav(target);
 });

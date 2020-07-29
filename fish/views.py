@@ -1,19 +1,26 @@
-import os
 
-from flask import Flask, request, jsonify
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from .utils import render_base, ajax
+from .config import app, Urls, Templates
 
-app = Flask(__name__)
-template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-env = Environment(
-    loader=FileSystemLoader(template_dir),
-    autoescape=select_autoescape(['html'])
-)
+# Target is the url that will be loaded via ajax after base.html is loaded
+@app.route('/', defaults={'target': ''})
+@app.route('/<string:target>')
+def base(target):
+    return render_base(target)
 
+@app.route(Urls.home)
+@ajax
+def home():
+    output = {}
+    output['title'] = "Home"
+    output['content'] = Templates.home.render()
+    return output
 
-
-@app.route('/', methods=['GET'])
-def index():
-    template = env.get_template('base.html')
-    return template.render()
-
+@app.route(Urls.kepler)
+@ajax
+def kepler():
+    output = {}
+    
+    output['title'] = "kepler"
+    output['content'] = Templates.kepler.render()
+    return output
