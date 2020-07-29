@@ -1,1 +1,1 @@
-web: gunicorn tim.fish:app
+web: gunicorn fish:app
