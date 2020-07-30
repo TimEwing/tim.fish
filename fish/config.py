@@ -24,8 +24,7 @@ class StorageClass():
         return var_dict
 
 class Urls(StorageClass):
-    base = '/'
-    home = '/home/'
+    home = '/'
     projects = '/projects/'
     omni = '/projects/omni/'
     kepler = '/projects/kepler/'

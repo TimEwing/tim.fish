@@ -9,9 +9,9 @@ def render_base(target):
     context.update(urls)
     templates = {f'{k}_template': v for k,v in Templates.to_dict().items()}
     context.update(templates)
-    
+
     if not target:
-        context['target'] = '/home/'
+        context['target'] = '/'
 
     return Templates.base.render(context)
 
@@ -20,11 +20,13 @@ def render_base(target):
 # Dict expects title and content fields
 def ajax(function):
     def wrapper(*args, **kwargs):
-        # Verify the request is ajax
+        # Check if the request is ajax
         request_xhr_key = request.headers.get('X-Requested-With')
         if request_xhr_key and request_xhr_key == 'XMLHttpRequest':
+            # Request is ajax
             return jsonify(function(*args, **kwargs))
         else:
+            # Request is not ajax
             # Render base template with this page as the target
             return render_base(request.full_path)
     # Flask requires unique function __name__s
