@@ -23,8 +23,13 @@ $( document ).ready(function() {
       method: "GET",
       dataType: "json", // Parse response as json
       success: function(data) {
+        console.log(data);
         $("#title").prop("innerHTML", data.title);
         $("#content").prop("innerHTML", data.content);
+      },
+      error: function(data) {
+        console.log(data);
+        $("#content").prop("innerHTML", data.responseText);
       },
     });
   }
