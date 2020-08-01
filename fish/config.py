@@ -28,6 +28,8 @@ class Urls(StorageClass):
     projects = '/projects/'
     omni = '/projects/omni/'
     kepler = '/projects/kepler/'
+    cam = '/projects/cam/'
+    twitchy = '/projects/twitchy/'
 
 class Templates(StorageClass):
     base = env.get_template('base.html')
