@@ -5,13 +5,13 @@ from .config import Urls, Templates
 # Helper function for re-rendering base.html with all the context it needs
 def render_base(target):
     context = {}
+    
     urls = {f'{k}_url': v for k,v in Urls.to_dict().items()}
     context.update(urls)
-    templates = {f'{k}_template': v for k,v in Templates.to_dict().items()}
-    context.update(templates)
 
-    if not target:
-        context['target'] = '/'
+    # Clean up urls with no query string
+    target = target.rstrip('?')
+    context['target'] = target or '/' # target = '/' if no target is passed
 
     return Templates.base.render(context)
 

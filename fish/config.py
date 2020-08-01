@@ -42,27 +42,27 @@ class Templates(StorageClass):
 errors = {
     400: [
         "Bad Request",
-        "Something went wrong, and the server said it's your fault.",
-        "Go ask them about it.",
+        "Something went wrong.",
+        "The server said it's your fault, go ask them about it.",
     ],
     401: [
         "Unauthorized",
-        "The request contained valid data and was understood by the server, but the server is refusing action. How rude. ",
-        "You probably need to log in.",
+        "The request contained valid data and was understood by the server, but the server is refusing action.",
+        "How rude. You probably need to log in.",
     ],
     403: [
         "Forbidden",
-        "The request contained valid data and was understood by the server, but the server is refusing action. How rude. ",
-        "You probably need to be me (Tim) instead of you (Not Tim).",
+        "The request contained valid data and was understood by the server, but the server is refusing action.",
+        "How rude. You probably need to be me (Tim) instead of you (Not Tim).",
     ],
     404: [
         "Not Found",
         "There isn't anything here.",
-        "Feel free to keep looking though.",
+        "Sorry about that.",
     ],
     405: [
         "Method Not Allowed",
-        "Not sure how you raised this error, but that method (like GET or POST or PUT) isn't allowed.",
+        "Not sure how you raised this error, but that method isn't allowed.",
         "What are you doing?",
     ],
     406: [
@@ -77,8 +77,8 @@ errors = {
     ],
     408: [
         "Request Timeout",
-        "The server got sick of waiting.",
-        "Maybe be faster next time.",
+        "The server timed out waiting for a response.",
+        "I guess the server got sick of waiting.",
     ],
     409: [
         "Conflict",
@@ -87,8 +87,8 @@ errors = {
     ],
     410: [
         "Gone",
-        "This page got deleted.",
-        "Was it ever even here?",
+        "This page was deleted.",
+        "",
     ],
     411: [
         "Length Required",
@@ -102,8 +102,8 @@ errors = {
     ],
     413: [
         "Payload Too Large",
-        "That file (or whatever) was too big.",
-        "Try making it smaller.",
+        "That file was too big.",
+        "Have you tried making it smaller?",
     ],
     414: [
         "URI Too Long",
@@ -113,12 +113,12 @@ errors = {
     415: [
         "Unsupported Media Type",
         "File type not supported.",
-        "Sorry.",
+        "",
     ],
     416: [
         "Range Not Satisfiable",
         "You asked for something the server doesn't have.",
-        "Try asking again, I'm sure that will help.",
+        "Try asking for something else.",
     ],
     417: [
         "Expectation Failed",
@@ -127,8 +127,8 @@ errors = {
     ],
     418: [
         "I'm a teapot",
-        "The server says that coffee machines cannot make tea.",
-        "Sorry about that.",
+        "This server does not support the brewing of tea in coffee machines.",
+        "Isn't coffee just bean tea though? What's with that?",
     ],
     421: [
         "Misdirected Request",
@@ -147,13 +147,13 @@ errors = {
     ],
     424: [
         "Failed Dependency",
-        "The request failed because it depended on another request and that request failed.",
-        "I hate it when that happens.",
+        "The request failed because it depended on another request that failed.",
+        "",
     ],
     425: [
         "Too Early",
         "The server is unwilling to risk processing a request that might be replayed.",
-        "They don't like taking risks.",
+        "Try again later.",
     ],
     426: [
         "Upgrade Required",
@@ -172,7 +172,7 @@ errors = {
     ],
     431: [
         "Request Header Fields Too Large",
-        "Largeness of Request Header Fields is Too",
+        "Largeness of Request Header Fields is Too Many",
         "Request Header Fields Excessively Smalln't",
     ],
     451: [
@@ -187,28 +187,28 @@ errors = {
     ],
     501: [
         "Not Implemented",
-        "I haven't done that bit yet.",
+        "I haven't finished that bit yet.",
         "Sorry.",
     ],
     502: [
         "Bad Gateway",
         "Someone else's server is having a bad day.",
-        "Sorry.",
+        "",
     ],
     503: [
         "Service Unavailable",
-        "The server is pretty busy right now and I felt weird interrupting.",
+        "The server is busy right now.",
         "Maybe come back later. Sorry.",
     ],
     504: [
         "Gateway Timeout",
-        "Someone else's server fell asleep while we were waiting for it.",
-        "Someone grab them a coffee.",
+        "Someone else's server timed out.",
+        "",
     ],
     505: [
         "HTTP Version Not Supported",
         "Turns out enabling HTTPS is extra.",
-        "",
+        "I didn't want to pay for it. Sorry.",
     ],
     506: [
         "Variant Also Negotiates",

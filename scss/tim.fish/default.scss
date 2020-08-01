@@ -1,0 +1,12 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+
+$theme-colors: (
+  "primary": #29F522,
+  "secondary": #91060A,
+);
+
+@import "../bootstrap/scss/bootstrap";
+
+
