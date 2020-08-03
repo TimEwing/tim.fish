@@ -2,9 +2,26 @@
 // Option A: Include all of Bootstrap
 
 
+@keyframes pulse {
+  0% {
+    opacity: 0%;
+  }
+  
+  50% {
+    opacity: 100%;
+  }
+}
+
+.blink {
+    animation: pulse 1.25s steps(1) infinite;
+}
+
+
 $theme-colors: (
-  "primary": #91060A,
-  "secondary": #29F522,
+  "primary": #689DCF,
+  "secondary": #8ADF32,
+  "dark": #300A24,
+  "black": #000000,
 );
 
 @import "../bootstrap/scss/bootstrap";

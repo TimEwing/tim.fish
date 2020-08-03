@@ -30,12 +30,13 @@ class Urls(StorageClass):
     kepler = '/projects/kepler/'
     cam = '/projects/cam/'
     twitchy = '/projects/twitchy/'
+    about = '/about/'
 
 class Templates(StorageClass):
     base = env.get_template('base.html')
     error = env.get_template('error.html')
     home = env.get_template('home.html')
-    # projects = env.get_template('projects.html')
+    projects = env.get_template('projects.html')
     # omni = env.get_template('omni.html')
     kepler = env.get_template('kepler.html')
 

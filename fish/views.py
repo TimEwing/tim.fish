@@ -5,6 +5,7 @@ from werkzeug.exceptions import HTTPException
 from .utils import render_base, ajax
 from .config import app, Urls, Templates, errors
 
+
 @app.errorhandler(Exception)
 @ajax
 def handle_error(e):
@@ -30,13 +31,24 @@ def handle_error(e):
     output['content'] = Templates.error.render(context)
     return output
 
+
 @app.route('/')
 @ajax
-def base():
+def home():
     output = {}
     output['title'] = "tim.fish - Home"
     output['content'] = Templates.home.render()
     return output
+
+
+@app.route(Urls.projects)
+@ajax
+def projects():
+    output = {}
+    output['title'] = "tim.fish - Projects"
+    output['content'] = Templates.projects.render()
+    return output
+
 
 @app.route(Urls.kepler)
 @ajax

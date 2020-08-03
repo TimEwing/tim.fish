@@ -21,35 +21,47 @@
 
     <title id='title'>Hello, world!</title>
   </head>
-  <body class="bg-dark">
+  <body class="bg-black">
     {% block navbar %}
-    <nav class="navbar navbar-expand-sm navbar-dark">
+    <nav class="navbar navbar-expand-sm navbar-black px-sm-5">
       <a class="internal-nav navbar-brand text-secondary text-monospace" href="/">tim.fish</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse navbar-nav" id="navbarNav">
-        <a class="internal-nav nav-item nav-link" href="/stuff">Stuff<span class="sr-only">(current)</span></a>
-        <a class="internal-nav nav-item nav-link" href="/things">Things</a>
-        <a class="internal-nav nav-item nav-link" href="/more-stuff">More Stuff</a>
+      <div class="collapse navbar-collapse navbar-nav justify-content-end" id="navbarNav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="workDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Work
+          </a>
+          <div class="dropdown-menu" aria-labelledby="workDropdown">
+            <a class="dropdown-item" href="{{ projects_url }}">Work</a>
+            <div class="dropdown-divider"></div>
+            <a class="internal-nav dropdown-item" href="{{ lhr_url }}">Left Hand Robotics</a>
+            <a class="internal-nav dropdown-item" href="{{ cygnss_url }}">CYGNSS</a>
+            <a class="internal-nav dropdown-item" href="{{ mako_url }}">MAKO</a>
+            <a class="internal-nav dropdown-item" href="{{ lucy_url }}">LUCY</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="projectDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Projects
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="projectDropdown">
             <a class="dropdown-item" href="{{ projects_url }}">Projects</a>
             <div class="dropdown-divider"></div>
+            <a class="internal-nav dropdown-item text-monospace" href="{{ timfish_url }}">tim.fish</a>
             <a class="internal-nav dropdown-item text-monospace" href="{{ omni_url }}">omni</a>
             <a class="internal-nav dropdown-item text-monospace" href="{{ kepler_url }}">kepler</a>
             <a class="internal-nav dropdown-item text-monospace" href="{{ cam_url }}">cam</a>
             <a class="internal-nav dropdown-item text-monospace" href="{{ twitchy_url }}">twitchy</a>
           </div>
         </li>
+        <a class="internal-nav nav-item nav-link" href="{{ about_url }}">About</a>
       </div>
     </nav>
     {% endblock %}
     {% block content %}
-    <div id="content" class="py-4 px-sm-5 px-lg-auto">
+    <div id="content" class="py-4 px-1 px-sm-5">
     </div>
     {% endblock %}
   </body>
