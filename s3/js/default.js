@@ -44,4 +44,5 @@ $( document ).ready(function() {
   console.log("target: "+target); 
   history.pushState({}, "", target);
   internalNav(target);
+
 });

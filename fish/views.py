@@ -32,6 +32,11 @@ def handle_error(e):
     return output
 
 
+@app.route('/welcome/')
+def welcome():
+    return Templates.welcome.render()
+
+
 @app.route('/')
 @ajax
 def home():

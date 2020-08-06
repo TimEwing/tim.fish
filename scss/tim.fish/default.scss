@@ -20,8 +20,9 @@
 $theme-colors: (
   "primary": #689DCF,
   "secondary": #8ADF32,
+  "console": #00FF00,
   "dark": #300A24,
-  "black": #000000,
+  "background": #161616,
 );
 
 @import "../bootstrap/scss/bootstrap";

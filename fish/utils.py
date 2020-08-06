@@ -1,9 +1,13 @@
-from flask import request, jsonify, url_for, redirect
+from flask import request, session, jsonify, redirect
 
 from .config import Urls, Templates
 
 # Helper function for re-rendering base.html with all the context it needs
 def render_base(target):
+    # If we haven't shown the welcome splash, show it
+    if not session.get('created'):
+        session['created'] = True
+        return redirect(Urls.welcome)
     context = {}
     
     urls = {f'{k}_url': v for k,v in Urls.to_dict().items()}

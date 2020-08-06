@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 #Flask setup
 app = Flask(__name__)
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
 
 # Jinja setup
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -25,6 +26,7 @@ class StorageClass():
 
 class Urls(StorageClass):
     home = '/'
+    welcome = '/welcome/'
     projects = '/projects/'
     omni = '/projects/omni/'
     kepler = '/projects/kepler/'
@@ -34,6 +36,7 @@ class Urls(StorageClass):
 
 class Templates(StorageClass):
     base = env.get_template('base.html')
+    welcome = env.get_template('welcome.html')
     error = env.get_template('error.html')
     home = env.get_template('home.html')
     projects = env.get_template('projects.html')
