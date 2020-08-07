@@ -16,7 +16,9 @@
     <!-- Custom JS -->
     <script src="http://timfishstatic.s3.us-east-2.amazonaws.com/js/default.js"></script>
 
-    <script type="data" id="target">{{ target }}</script>
+    {% block target %}
+      <script type="data" id="target">{{ target }}</script>
+    {% endblock %}
 
 
     <title id='title'>Hello, world!</title>

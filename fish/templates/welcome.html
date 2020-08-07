@@ -1,12 +1,31 @@
 {% extends "base.html" %}
+{% block target %}
+{% endblock %}
 {% block navbar %}
 {% endblock %}
 {% block content %}
-<!-- omni -->
+<!-- content of console, to be rendered in char by char -->
+<!-- indentation is weird to make sure content gets copied correctly -->
+<div id="template-div" style="display: none;">
+  <span id="template-newline" class="text-secondary">&nbsp;&gt;&nbsp;</span>
+  <span id="template-cursor" class="blink">&#9608;</span>
+  <!-- Each element inside the template-content div will be added to #console one at a time in a copy of their element (without the extra classes) -->
+  <!-- For data-delay, the text will be rendered with a longer delay -->
+  <!-- For typewriter classes, the text will be added one char at a time -->
+  <!-- For newline classes, the element gets added to a new parent <p> -->
+
+  <!-- Nested elements are not supported; the first element must have class newline -->
+  <div id="template-content">
+    <span class="newline typewriter">Hello world!</span><span data-delay="2000"></span>
+    <br>
+    <span class="typewriter text-red">Lorem Ipsum stuff things woo!</span>
+    <span class="newline typewriter">NEWLINE WOO</span>
+  </div>
+</div>
 
 <div class="container" style="height: 100vh;">
   <div class="d-flex align-items-center justify-content-center h-100">
-      <div id="console" class="container card border-0 bg-dark" style="max-width: 600px; min-height: 350px;">
+    <div id="console" class="container card border-0 p-0 bg-dark text-light text-monospace" style="max-width: 600px; min-height: 350px;">
     </div>
   </div>
 </div>
