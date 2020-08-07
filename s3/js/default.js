@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
   // Defaults
-  var typingSpeed = 100; // ms per char
+  var typingSpeed = 65; // ms per char
 
   // When internal navigation links are clicked, only update the content of the 
   // page while allowing the forward and back buttons to continue working
