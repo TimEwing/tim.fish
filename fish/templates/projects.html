@@ -1,25 +1,8 @@
-<div class="jumbotron bg-dark text-light text-center">
-  <h1 class="jumbotron-heading"> Projects </h1>
-  <p class="lead text-muted"> These are personal projects I've done outside of both school and work. </p>
-</div>
 <div class="container" style="max-width: 1000px">
-  <!-- omni -->
-  <div class="card border-0 my-5">
-    <img class="card-img-top" src="http://timfishstatic.s3.us-east-2.amazonaws.com/media/splat.png" alt="plat.png">
-    <div class="card-body">
-      <h4 class="card-title text-monospace bg-dark text-light"><span class="text-secondary">&nbsp;&gt;&nbsp;</span>omni</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+  <!-- header -->
+  <div class="jumbotron bg-background text-light text-center">
+    <h1 class="jumbotron-heading"> Projects </h1>
+    <p class="lead">I spend a lot of my free time working on personal projects outside of both work and school. Most of them, like this website, are code related.</p>
   </div>
-
-  <!-- kepler -->
-  <div class="card border-0 my-5">
-    <video class="card-img-top" align="center" height="100%" autoplay="true" loop muted>
-      <source src="http://timfishstatic.s3.us-east-2.amazonaws.com/media/output.mp4" type="video/mp4">
-    </video>
-    <div class="card-body">
-      <h4 class="card-title text-monospace bg-dark text-light"><span class="text-secondary">&nbsp;&gt;&nbsp;</span>omni</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
+  {% include 'cards/omnicard.html' %}
 </div>

@@ -16,14 +16,28 @@
 
   <!-- Nested elements are not supported; the first element must have class newline -->
   <div id="template-content">
-    <span class="newline typewriter">Hello, world.</span><span data-delay="1000"></span>
-    <span class="newline typewriter">My name is Tim Ewing.</span><span data-delay="1250"></span>
-    <span class="newline typewriter">I'm a Software Engineer from Boulder, Colorado.</span><span data-delay="800"></span>
-    <!-- <span class="typewriter"> </span>
-    <i class="typewriter text-console" data-delay="125">tim.fish</i>
-    <span class="typewriter" data-delay="350">.</span>
-    <span class="typewriter"> I made it to show off projects that I've worked on.</span><span data-delay="750"></span> -->
-    <span class="newline typewriter"></span>
+    <span class="newline" data-delay="2000"></span>
+    <span class="typewriter">Hello, world!</span><span data-delay="1500"></span>
+
+    <span class="newline typewriter">I'm Tim Ewing.</span>
+    <span data-delay="800"></span> 
+    <span class="typewriter"> I'm a Software Engineer and a Engineering Physics major at CU Boulder.</span>
+    <span data-delay="1500"></span>
+
+    <span class="newline typewriter">I work at SwRI as a Flight Controller, Software Engineer, and Researcher.</span>
+    <span data-delay="1500"></span>
+
+    <a href="/" class="newline typewriter text-secondary">tim.fish</a>
+    <span class="typewriter"> is my website.</span>
+    <span data-delay="300"></span>
+    <span class="typewriter"> It shows off the projects and work that I do.</span>
+    <span data-delay="1000"></span>
+
+    <span class="newline" data-delay="750"></span>
+    <span class="typewriter">Click </span>
+    <a href="/" class="typewriter">here</a>
+    <span class="typewriter"> to continue.</span>
+
   </div>
 </div>
 
@@ -34,8 +48,8 @@
   </div>
 </div>
 
-<div class="fixed-bottom d-flex justify-content-end">
-  <a class="btn btn-outline-primary my-3 mx-1" href="#">skip 1</a>
-  <a class="btn btn-outline-primary my-3 mx-1" href="#">skip 2</a>
+<div class="fixed-bottom d-flex justify-content-end px-3">
+  <a class="btn btn-outline-primary my-3 mx-1" href="#" id="skip-animation">Skip Animation</a>
+  <a class="btn btn-outline-primary my-3 mx-1" href="/" id="skip-site">Skip to Site</a>
 </div>
 {% endblock %}

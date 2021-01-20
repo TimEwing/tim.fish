@@ -31,6 +31,7 @@ class Urls(StorageClass):
     omni = '/projects/omni/'
     kepler = '/projects/kepler/'
     cam = '/projects/cam/'
+    swri = '/work/swri/'
     twitchy = '/projects/twitchy/'
     about = '/about/'
 

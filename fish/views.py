@@ -2,7 +2,7 @@ import traceback
 
 from werkzeug.exceptions import HTTPException
 
-from .utils import render_base, ajax
+from .utils import render_base, ajax, get_base_context
 from .config import app, Urls, Templates, errors
 
 
@@ -34,7 +34,8 @@ def handle_error(e):
 
 @app.route('/welcome/')
 def welcome():
-    return Templates.welcome.render()
+    context = get_base_context()
+    return Templates.welcome.render(context)
 
 
 @app.route('/')

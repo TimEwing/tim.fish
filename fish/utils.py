@@ -2,16 +2,21 @@ from flask import request, session, jsonify, redirect
 
 from .config import Urls, Templates
 
+def get_base_context():
+    context = {}
+    urls = {f'{k}_url': v for k,v in Urls.to_dict().items()}
+    context.update(urls)
+    return context
+
+
 # Helper function for re-rendering base.html with all the context it needs
 def render_base(target):
     # If we haven't shown the welcome splash, show it
     if not session.get('created'):
         session['created'] = True
         return redirect(Urls.welcome)
-    context = {}
-    
-    urls = {f'{k}_url': v for k,v in Urls.to_dict().items()}
-    context.update(urls)
+
+    context = get_base_context()
 
     # Clean up urls with no query string
     target = target.rstrip('?')
