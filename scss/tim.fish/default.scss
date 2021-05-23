@@ -21,6 +21,10 @@ $theme-colors: (
   "background": #161616,
 );
 
+p {
+    line-height: 1.7rem;
+}
+
 @import "../bootstrap/scss/bootstrap";
 
 

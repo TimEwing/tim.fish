@@ -43,7 +43,8 @@ def welcome():
 def home():
     output = {}
     output['title'] = "tim.fish - Home"
-    output['content'] = Templates.home.render()
+    context = get_base_context()
+    output['content'] = Templates.home.render(context)
     return output
 
 
@@ -52,7 +53,8 @@ def home():
 def projects():
     output = {}
     output['title'] = "tim.fish - Projects"
-    output['content'] = Templates.projects.render()
+    context = get_base_context()
+    output['content'] = Templates.projects.render(context)
     return output
 
 
@@ -61,5 +63,6 @@ def projects():
 def kepler():
     output = {}
     output['title'] = "tim.fish - kepler"
-    output['content'] = Templates.kepler.render()
+    context = get_base_context()
+    output['content'] = Templates.kepler.render(context)
     return output

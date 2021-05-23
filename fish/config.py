@@ -24,6 +24,7 @@ class StorageClass():
         var_dict = {k:v for k, v in var_dict.items() if not callable(v)}
         return var_dict
 
+# Black magic happens behind the scenes to make all of this work as it should
 class Urls(StorageClass):
     home = '/'
     welcome = '/welcome/'
@@ -41,7 +42,7 @@ class Templates(StorageClass):
     error = env.get_template('error.html')
     home = env.get_template('home.html')
     projects = env.get_template('projects.html')
-    # omni = env.get_template('omni.html')
+    omni = env.get_template('omni.html')
     kepler = env.get_template('kepler.html')
 
 

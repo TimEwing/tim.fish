@@ -11,6 +11,10 @@
   animation: pulse 1.25s steps(1) infinite;
 }
 
+p {
+  line-height: 1.7rem;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
