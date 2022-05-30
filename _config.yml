@@ -33,6 +33,7 @@ github_username:  TimEwing
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+include: ['CNAME']
 
 # mm config
 minimal_mistakes_skin: "neon"
