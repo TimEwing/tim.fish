@@ -41,6 +41,10 @@ minimal_mistakes_skin: "neon"
 after_footer_scripts:
   - /assets/js/typewriter.js
 
+defaults:
+  layout: single
+  classes: wide
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
