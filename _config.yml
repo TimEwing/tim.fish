@@ -21,13 +21,24 @@
 title: tim.fish
 email: TimJEwing@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  tim.fish is the personal website of Tim Ewing, a software engineer from 
+  Boulder, Colorado.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tim.fish" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
 github_username:  TimEwing
+
+author:
+  name: "Tim Ewing"
+  avatar: "assets/images/profile.jpg"
+  bio: "Software Engineer" # Note: Markdown is allowed
+  location: "Boulder, Colorado"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/TimEwing"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/nottimewing"
 
 # Build settings
 theme: minimal-mistakes-jekyll
@@ -44,7 +55,7 @@ after_footer_scripts:
 
 defaults:
   layout: single
-  classes: wide
+  author_profile: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

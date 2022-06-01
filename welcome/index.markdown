@@ -4,6 +4,7 @@
 
 layout: splash
 classes: wide
+author_profile: false
 ---
 
 <!-- content of console, to be rendered in char by char -->
