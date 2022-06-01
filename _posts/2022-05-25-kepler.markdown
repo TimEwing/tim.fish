@@ -9,6 +9,9 @@ header:
   video: /assets/videos/kepler.mp4
 excerpt: Hand-made keplerian orbit simulation, made as extra credit for an introductory astronomy class.
 ---
+<a href="https://github.com/TimEwing/kepler">
+  <i class="fab fa-github"> View source on GitHub</i>
+</a>
 
 Kepler is a program which simulates what an Earth-based telescope would see when observing the transit of an exoplanet in front of another solar system's star.
 

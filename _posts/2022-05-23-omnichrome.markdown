@@ -10,6 +10,11 @@ header:
 excerpt: Programmatically produced polychromatic pictures with picturesquely placed pixels
 ---
 
+<a href="https://github.com/TimEwing/omni">
+  <i class="fab fa-github"> View source on GitHub</i>
+</a>
+
+
 Omnichrome is a project I've been working on for almost as long as I've been able to code. I use it as a practice project to make sure I stay in form when I'm not doing much coding at work or school.
 
 What does it do? 

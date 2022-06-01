@@ -10,6 +10,10 @@ header:
 excerpt: New Horizons unresolved observation filter conversion, performed as an independent study.
 ---
 
+<a href="https://github.com/TimEwing/pluto">
+  <i class="fab fa-github"> View source on GitHub</i>
+</a>
+
 One of the perks of interning at Southwest Research Institute was being able to do an independent study my senior year. I was asked to convert unresolved observations of Pluto from NASA's New Horizons between two sets of optical filters. Since the bandwidth profile of the two filter sets didn't correspond cleanly, conversion was fairly involved. 
 
 A writeup of the project is available as a pdf [here](/assets/nh_conversion_tim_ewing.pdf):
