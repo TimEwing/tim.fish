@@ -281,6 +281,7 @@ DEPENDENCIES
   github-pages
   http_parser.rb (~> 0.6.0)
   jekyll-feed (~> 0.12)
+  jekyll-redirect-from
   minima (~> 2.5)
   minimal-mistakes-jekyll
   tzinfo (~> 1.2)
