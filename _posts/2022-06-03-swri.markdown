@@ -4,7 +4,7 @@ author_profile: true
 classes: wide
 
 title: "Southwest Research Institute"
-date: 2022-04-03 12:23:00 -0600
+date: 2022-06-03 12:23:00 -0600
 excerpt: Located in Boulder, Colorado where I worked on LUCY, a NASA Discovery class Mission and CYGNSS, a NASA Pathfinder class Mission.
 tagline: ""
 header:
