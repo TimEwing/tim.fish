@@ -50,7 +50,7 @@ author:
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-include: ['CNAME']
+include: ['CNAME', 'resume/index.html']
 
 # mm config
 minimal_mistakes_skin: "neon"
