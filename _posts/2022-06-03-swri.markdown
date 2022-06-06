@@ -1,0 +1,42 @@
+---
+layout: single
+author_profile: true
+classes: wide
+
+title: "Southwest Research Institute"
+date: 2022-06-03 12:23:00 -0600
+excerpt: Located in Boulder, Colorado where I worked on LUCY, a NASA Discovery class Mission and CYGNSS, a NASA Pathfinder class Mission.
+tagline: ""
+header:
+  teaser: /assets/images/cygnss.jpg
+  overlay_image: /assets/images/lucy.jpg
+---
+# SwRI
+During my undergraduate degree, I worked part-time at Southwest Research Institure (SwRI) in Boulder, Colorado. The majority of my time was spent on two missions: CYGNSS, a constellation of eight satellites in low Earth orbit, and LUCY, a Discovery class mission on its way to the Trojan asteroids. 
+
+# CYGNSS
+The Cyclone Global Navigation Satellite System (CYGNSS) is a constellation of eight approximately meter sized satellites in low Earth orbit. They use a Delay-Doppler Mapping Instrument (DDMI) to map ocean surface wind - that is, they listen to the reflection of GPS signals from the ocean surface and measure the amount of scatter caused by choppy waves to infer the surface wind speed. The data is used primarily to aid hurricane prediction efforts.
+
+{% include figure image_path="/assets/images/cygnss_data.jpg" caption="An example of CYGNSS DDMI data, from [nasa.gov](https://www.nasa.gov/feature/nasa-s-cygnss-satellite-constellation-enters-science-operations-phase/)" %}
+
+I was initially hired to help take over maintenance of the mission planning system, a Django-based web service which mission planners used to scheudle operations of the satellites. I also worked as a Flight Controller on the mission, meaning I was the last human in the line between the commands scheduled by the mission planners and the satellites themselves.
+
+After about a year at SwRI, I was also tasked with writing a few scripts for the mission's [Integrated Test and Operations System](https://itos.gsfc.nasa.gov/index.php) which manages the playback of data during the satellites' ground station overpasses. Scripts I wrote focused especially on data validation and playback; when blocks of data were found to be missing or corrupted after processing, my scripts would generate replay commands and pass them back to ITOS for replay on the next pass. These replays used extra time at the end of each pass in order to eliminate the need for extra planned replay passes. These scripts helped CYGNSS double the frequency of ground passes and reduce the latency between collection and use of data.
+
+I also authored and co-authored papers while at SwRI, both of which presented at the IEEE Aerospace Conference. The first paper, [_When You Have More Satellites than People: The Evolution of CYGNSS Flight Operations_](https://ieeexplore.ieee.org/abstract/document/8741926) details the process we use to manage the constellation with minimal staff and how we use extensive automation in our process. The second paper, [_Django as a Mission Planning Tool Interface for the CYGNSS Mission_](https://ieeexplore.ieee.org/document/9438383), is a dive into the types of interfaces generally used for mission planning tools and a description of how web development strategies can be used to quickly iterate and test tools for mission planning. A full PDF is available [here](/assets/cycygnss_paper.pdf).
+
+<embed src="/assets/cycygnss_paper.pdf" type="application/pdf">
+<br>
+
+# LUCY
+LUCY is a Discovery class mission launched on October 16, 2021. It will fly by a series of Trojan asteroids, objects which orbit out of phase in the same orbit as Jupiter, using a complicated series of gravity assists.
+
+<figure>
+  <video align="center" width="100%" autoplay="true" loop muted>
+    <source src="https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004719/Lucy_full_01_1080p30.mp4" type="video/mp4">
+  </video>
+  <figcaption>LUCY's planned trajectory, via <a hrev="https://svs.gsfc.nasa.gov/4719">NASA's SVI</a>.</figcaption>
+</figure>
+
+My role on LUCY was very similar to the work I did on CYGNSS; I helped design a mission planning interface using Python/Django from the ground up using lessons learned from the previous version. I built the initial versions of the codebase and helped build out both the backend and frontend. I also contributed to [_Lucy Science Planning: Incorporating Lessons Learned from over a Decade of Space Ops Experience_](https://ieeexplore.ieee.org/abstract/document/9438187), a paper presented at the 2021 IEEE Aerospace Conference. 
+

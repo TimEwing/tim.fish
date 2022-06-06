@@ -18,25 +18,50 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: tim.fish
+email: TimJEwing@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  tim.fish is the personal website of Tim Ewing, a software engineer from 
+  Boulder, Colorado.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tim.fish" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  TimEwing
+
+author:
+  name: "Tim Ewing"
+  avatar: "assets/images/profile.jpg"
+  bio: "Software Engineer" # Note: Markdown is allowed
+  location: "Boulder, Colorado"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/TimEwing"
+    - label: "Resume"
+      icon: "fas fa-fw fa-file-alt"
+      url: "/assets/resume_tim_ewing.pdf"
+    - label: "About"
+      icon: "fas fa-fw fa-question-circle"
+      url: "/about/"
+    - label: "Replay Intro"
+      icon: "fas fa-fw fa-sync-alt"
+      url: "/welcome/"
 
 # Build settings
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+include: ['CNAME']
 
 # mm config
 minimal_mistakes_skin: "neon"
 
+# custom js
+after_footer_scripts:
+  - /assets/js/typewriter.js
+
+defaults:
+  layout: single
+  author_profile: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
