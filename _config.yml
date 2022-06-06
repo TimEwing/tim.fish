@@ -50,7 +50,6 @@ author:
 theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-  - jekyll-redirect-from
 include: ['CNAME']
 
 # mm config

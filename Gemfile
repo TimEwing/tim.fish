@@ -35,6 +35,3 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 # Minimal mistakes theme: mmistakes.github.io
 gem "minimal-mistakes-jekyll"
 
-# Redirects
-gem 'jekyll-redirect-from'
-
