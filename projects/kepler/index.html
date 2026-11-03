@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kepler.py | tim.fish</title>
+  <meta name="description" content="Hand-made Keplerian orbit simulation, made as extra credit for an introductory astronomy class.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="site-title" href="/">tim.fish</a>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/assets/resume_tim_ewing.pdf">Resume</a>
+      <a href="https://github.com/TimEwing">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <article>
+      <h1>kepler.py<span class="blink">&#9608;</span></h1>
+
+      <p><a href="https://github.com/TimEwing/kepler">View source on GitHub</a></p>
+
+      <p>Kepler is a program which simulates what an Earth-based telescope would see when observing the transit of an exoplanet in front of another solar system's star.</p>
+
+      <figure>
+        <a href="https://xkcd.com/1371/"><img src="/assets/images/xkcd_brightness.png" alt="xkcd 1371: Brightness" width="218"></a>
+      </figure>
+
+      <p>It was designed to generate short, educational animations to help explain the concept to students. I wrote it as an optional, extra-credit assignment for my Introduction to Astronomy class - the assignment was to create an educational graphic for future classes.</p>
+
+      <p>Here's what Jupiter orbiting the Sun in Mercury's orbit would look like:</p>
+
+      <figure><video src="/assets/videos/kepler.mp4" width="100%" autoplay loop muted playsinline></video></figure>
+
+      <p>The program actually generates four separate, synchronized animations:</p>
+      <ol>
+        <li>Upper-left: The (exaggerated) color of what each pixel would see</li>
+        <li>Upper-right: The orbit, sun, and planet (to scale)</li>
+        <li>Center-right: The non-pixelated image of the planet crossing the star</li>
+        <li>Bottom: The lightcurve of the observation, with simulated noise.</li>
+      </ol>
+
+      <p>The program is able to handle all the normal parameters for Keplerian orbits. Here's Jupiter on a completely unrealistic, inclined, comet-like path in front of the Sun:</p>
+
+      <figure><video src="/assets/videos/kepler2.mp4" width="100%" autoplay loop muted playsinline></video></figure>
+
+      <p>You can also use Kepler to simulate lunar eclipses since it is essentially the same phenomenon (a big dark thing going in front of the big circular light thing):</p>
+
+      <figure><video src="/assets/videos/kepler3.mp4" width="100%" autoplay loop muted playsinline></video></figure>
+
+      <p>I wrote the program in Python and used basically only numpy and matplotlib; no libraries were used for orbital or geometry calculations. There's a ton of 2D and 3D trig involved, and it got pretty nasty pretty quickly. It also includes a hand-built Newton's Method minimum finder since I got sick of trying to analytically solve for the transit point.</p>
+
+      <p>I'm not going to write up the mess that is the geometry involved here, but if you want a taste the code is at <a href="https://github.com/TimEwing/kepler">https://github.com/TimEwing/kepler</a>. There is only one commit, no documentation, and only a few comments but other than the math it's mostly just configuring matplotlib. The whole project was less than 48 hours start-to-finish. The highlight is probably the solution for the circle-circle-square intersection; that chunk of code took the majority of the project's time.</p>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>omnichrome.py | tim.fish</title>
+  <meta name="description" content="Programmatically produced polychromatic pictures with picturesquely placed pixels">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="site-title" href="/">tim.fish</a>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/assets/resume_tim_ewing.pdf">Resume</a>
+      <a href="https://github.com/TimEwing">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <article>
+      <h1>omnichrome.py<span class="blink">&#9608;</span></h1>
+
+      <p><a href="https://github.com/TimEwing/omni">View source on GitHub</a></p>
+
+      <p>Omnichrome is a project I've been working on for almost as long as I've been able to code. I use it as a practice project to make sure I stay in form when I'm not doing much coding at work or school.</p>
+
+      <p>What does it do?</p>
+
+      <p>Omnichrome makes images.</p>
+
+      <figure><img src="/assets/images/omni/splut.png" alt=""></figure>
+
+      <p>It makes pretty, colorful, fractal-esque images.</p>
+
+      <figure><img src="/assets/images/omni/splat.png" alt=""></figure>
+
+      <p>Every pixel in the images is unique; every possible 7-bit color is there exactly once.</p>
+
+      <figure><img src="/assets/images/omni/splurt.png" alt=""></figure>
+
+      <p>These images are produced by the current iteration, which is the 5th or 6th total version of the program.</p>
+
+      <p>The original inspiration was a post on <a href="https://codegolf.stackexchange.com/questions/22144/images-with-all-colors">codegolf.stackexchange</a> that challenged competitors to create images with every color. They link to <a href="https://allrgb.com">allrgb.com</a>; who knows where the original idea came from.</p>
+
+      <p>I wrote my first version in middle school. I used a language called <a href="https://processing.org/">Processing</a>, which is really just Java with a nice graphics interface. I only have one sample that survived from that version:</p>
+
+      <figure><img src="/assets/images/omni/flower.png" alt="" width="256"></figure>
+
+      <p>Honestly, I still think it kinda looks good but realistically there's no way it's actually omnichromatic (meaning a unique and spanning set of pixels).</p>
+
+      <p>The newest version is a lot more complex than that original version. In a sentence, it uses a K-D tree to iteratively place the nearest unused pixel in color to the neighbors moving outward from the center. At a high level that isn't too complicated, but the details get pretty messy pretty quickly.</p>
+
+      <h2>How to Build an Omnichrome</h2>
+
+      <h3>Step One: Make a Stochastic 3D Voronoi Partition of the Entire Colorspace</h3>
+
+      <p><em>Stochastic 3D Voronoi Partition</em>. What?</p>
+
+      <p>A Voronoi pattern is made by selecting a bunch of points on the plane, then coloring the plane based on the nearest point. Wikipedia has a nice example:</p>
+
+      <figure>
+        <a href="https://en.wikipedia.org/wiki/Voronoi_diagram"><img src="/assets/images/voronoi.svg" alt="Euclidean Voronoi diagram" width="350"></a>
+      </figure>
+
+      <p>We're doing the same thing, but we're grouping <em>colorspace</em> instead of normal Euclidean space. However, since humans have three differently colored cones in our eyes, we need three dimensions in our colorspace, so we get more of a Voronoi Cube than a Voronoi Diagram.</p>
+
+      <p>That's not so hard. We're randomly (<em>stochastically</em>) selecting a bunch of colors, and grouping the rest of the <em>colorspace</em> by which color is closest (<em>Voronoi partitioning</em>). <em>Stochastic 3D Voronoi Partitioning</em>. Neat.</p>
+
+      <h3>Step Two: The K-D Tree</h3>
+
+      <p><em>Use the Voronoi Partitions to build a K-D Tree</em></p>
+
+      <p>A <a href="https://en.wikipedia.org/wiki/K-d_tree">K-D Tree</a> is a binary tree used to partition <em>spatial</em> data instead of just numerical data. It works in some K number of dimensions instead of just one; a binary tree is a special case of a K-D tree where K=1. Normally, a K-D tree works somewhat differently than in our case. The Voronoi partitioning gives much more aesthetically pleasing results, but it isn't a part of the normal process.</p>
+
+      <p>For our case, we just use each group from the previous step (the Voronoi partitions) as a single branch of the tree. A normal K-D Tree has only two branches per step - we can have any number (although only one branch would be a pretty sad tree).</p>
+
+      <p>The 'key' for each branch is just the point that corresponded to that group. Later, when we want to search through the tree, we just compare the color we're searching to each branch's initial color.</p>
+
+      <p>Now, we just need to iterate the process: each sub-group from the original Voronoi partition is broken into a pattern of even more Voronoi partitions. Continue until each partition only has one pixel.</p>
+
+      <p>Efficiently partitioning the whole space is a can of worms I don't want to get into right now, but a push in the right direction would be to imagine each selected color as a heavy mass on a rubber sheet, and to imagine the other colors in the space as particles sliding down towards that color.</p>
+
+      <h3>Step Three: Search the Tree</h3>
+
+      <p><em>Starting in the middle of the image, place each pixel from the tree</em></p>
+
+      <p>This part is easier. Since we already have the tree, it's now pretty easy to search it for colors. All we have to do is this:</p>
+
+      <ol>
+        <li>Pick a pixel to place; start at the middle, and spiral outward to the edges.</li>
+        <li>Average the neighboring pixels; search the K-D Tree for the nearest color to this average.</li>
+        <li>Pop that color out of the tree; place it at this pixel.</li>
+        <li>Return to step 1 until we're out of pixels.</li>
+      </ol>
+
+      <p>And that's it. Tadaa! You've made an omnichromic (<em>omnichromatic?</em>) picture!</p>
+
+      <h3>Step Four: Tune the Result</h3>
+
+      <p>Lots of parameters can be changed and tuned here to make better looking outputs. For example, when making the Voronoi partitions, there's not really a good reason to use the normal Euclidean metric. I found the best results come from using a skewed metric which uses Hue, Saturation, and Value as the basis, treats Hue as circular, and weights distances in Hue stronger when Saturation and Value are higher.</p>
+
+      <p>There's also no reason you have to start in the middle and spiral out:</p>
+
+      <figure><img src="/assets/images/omni/drip.png" alt=""></figure>
+
+      <p>I personally think the circular ones are best, but to each their own. Someday I'll probably write another version, but this is the project as it stands.</p>
+
+      <p>Thanks for reading.</p>
+    </article>
+  </main>
+</body>
+</html>

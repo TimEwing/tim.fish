@@ -1,0 +1,171 @@
+/* tim.fish — the only stylesheet. Dark "neon" look carried over from the old Minimal Mistakes skin. */
+
+:root {
+  --bg: #141010;
+  --text: #fff6fb;
+  --muted: #a6a0a3;
+  --link: #55ff55;
+  --card: #3a0028;
+  --console: #2c001e;
+  --rule: #3a3335;
+  --selection: #008cff;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+
+::selection { background: var(--selection); }
+
+a { color: var(--link); }
+a:hover { text-decoration: none; }
+
+img, video, embed { max-width: 100%; }
+
+h1, h2, h3 { line-height: 1.25; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead .site-title {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.masthead nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.masthead nav a { color: var(--muted); text-decoration: none; }
+.masthead nav a:hover { color: var(--link); }
+
+/* ---------- page shells ---------- */
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+
+/* Home: profile sidebar + project list */
+.home {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+}
+
+@media (max-width: 760px) {
+  .home { grid-template-columns: minmax(0, 1fr); }
+}
+
+.profile img {
+  width: 160px;
+  max-width: 100%;
+  border-radius: 50%;
+}
+.profile h2 { margin: 0.75rem 0 0; font-size: 1.2rem; }
+.profile p { margin: 0.25rem 0; color: var(--muted); }
+.profile ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+.profile li { margin: 0.3rem 0; }
+
+/* ---------- project cards ---------- */
+
+.cards h2 { margin-top: 0; color: var(--muted); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.card {
+  background: var(--card);
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+.card img, .card video {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+}
+.card h3 { margin: 0.75rem 0 0.25rem; }
+.card h3 a { font-family: var(--mono); color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--link); }
+.card p { margin: 0; color: var(--muted); }
+
+/* ---------- articles ---------- */
+
+article h1 { font-family: var(--mono); font-size: 2rem; }
+
+article figure { margin: 2rem auto; text-align: center; }
+article figure img, article figure video { display: block; margin: 0 auto; }
+article figcaption { margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem; }
+
+.pdf { display: block; width: 100%; height: 80vh; margin: 1rem 0; }
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: 320px;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.hero h1 { margin: 0; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
+
+.text-center { text-align: center; }
+
+/* ---------- blinking cursor ---------- */
+
+@keyframes pulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+}
+.blink { animation: pulse 1.25s steps(1) infinite; }
+
+/* ---------- welcome pseudo-console ---------- */
+
+.console {
+  position: relative;
+  max-width: 800px;
+  min-height: 475px;
+  margin: 15vh auto 0;
+  padding: 1rem 1rem 3.5rem;
+  background: var(--console);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.console .prompt { color: #999; }
+
+.skip-animation {
+  position: absolute;
+  right: 1rem;
+  bottom: 10px;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+.skip-animation:hover { border-color: var(--link); color: var(--link); }

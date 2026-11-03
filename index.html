@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tim.fish</title>
+  <meta name="description" content="tim.fish is the personal website of Tim Ewing, a software engineer from Boulder, Colorado.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/css/site.css">
+  <script>
+    // First visit to the home page in a session plays the /welcome/ intro.
+    try {
+      if (!sessionStorage.getItem("welcomePlayed")) {
+        sessionStorage.setItem("welcomePlayed", "1");
+        location.replace("/welcome/");
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="site-title" href="/">tim.fish</a>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/assets/resume_tim_ewing.pdf">Resume</a>
+      <a href="https://github.com/TimEwing">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="page home">
+    <aside class="profile">
+      <img src="/assets/images/profile.jpg" alt="Tim Ewing">
+      <h2>Tim Ewing</h2>
+      <p>Software Engineer</p>
+      <p>Boulder, Colorado</p>
+      <ul>
+        <li><a href="https://github.com/TimEwing">GitHub</a></li>
+        <li><a href="/assets/resume_tim_ewing.pdf">Resume</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/welcome/">Replay Intro</a></li>
+      </ul>
+    </aside>
+
+    <section class="cards">
+      <h2>Projects</h2>
+
+      <article class="card">
+        <a href="/projects/swri/"><img src="/assets/images/cygnss.jpg" alt=""></a>
+        <h3><a href="/projects/swri/">Southwest Research Institute</a></h3>
+        <p>Located in Boulder, Colorado where I worked on Lucy, a NASA Discovery class Mission and CYGNSS, a NASA Earth Venture class Mission.</p>
+      </article>
+
+      <article class="card">
+        <a href="/projects/omnichrome/"><img src="/assets/images/omni/splut.png" alt=""></a>
+        <h3><a href="/projects/omnichrome/">omnichrome.py<span class="blink">&#9608;</span></a></h3>
+        <p>Programmatically produced polychromatic pictures with picturesquely placed pixels</p>
+      </article>
+
+      <article class="card">
+        <a href="/projects/kepler/"><video src="/assets/videos/kepler.mp4" autoplay loop muted playsinline></video></a>
+        <h3><a href="/projects/kepler/">kepler.py<span class="blink">&#9608;</span></a></h3>
+        <p>Hand-made Keplerian orbit simulation, made as extra credit for an introductory astronomy class.</p>
+      </article>
+
+      <article class="card">
+        <a href="/projects/nh-convert/"><img src="/assets/images/nh.jpg" alt=""></a>
+        <h3><a href="/projects/nh-convert/">nh_convert.sh<span class="blink">&#9608;</span></a></h3>
+        <p>New Horizons unresolved observation filter conversion, performed as an independent study.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
