@@ -39,4 +39,6 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 ## Deploying
 
-Hosted on GitHub Pages (custom domain set via `CNAME`). There is nothing to build: whatever is on the publishing branch is the site.
+GitHub Pages serves this repo directly from `master` (repo root), with the custom domain set by `CNAME`. Since there's no build step, pushing to `master` publishes the site, usually within a minute.
+
+(Before 2026 the site was built with Jekyll and the output pushed to a separate `TimEwing.github.io` repo. That repo is archived.)
