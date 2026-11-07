@@ -1,0 +1,127 @@
+/* Resume page. Print-first: light, black-on-white, sized for US Letter.
+   On screen the page is shown as a sheet of paper on the site's dark background. */
+
+/* IBM Plex Sans, vendored so the PDF looks the same on any machine. SIL Open Font License.
+   Files are from https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5.1.0/files/ (latin subset). */
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: normal; src: url("fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: italic; src: url("fonts/ibm-plex-sans-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-style: normal; src: url("fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
+
+:root {
+  --ink: #111;
+  --muted: #555;
+  --accent: #3a0028;          /* the site's card color, as a print-safe accent */
+  --rule: #c9bcc4;
+  --page-bg: #141010;         /* matches css/site.css --bg */
+  --link: #55ff55;
+  --font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+@page { size: Letter; margin: 0.5in 0.6in; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 10.5pt; }
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.3;
+}
+
+/* ---------- screen chrome ---------- */
+
+.toolbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 11pt;
+}
+.toolbar a { color: var(--link); text-decoration: none; }
+.toolbar a:hover { text-decoration: underline; }
+.toolbar button {
+  padding: 0.3rem 0.8rem;
+  background: transparent;
+  color: var(--link);
+  border: 1px solid var(--link);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.warnings {
+  max-width: 8.5in;
+  margin: 0 auto 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff3cd;
+  color: #5c4500;
+  border: 1px solid #e0c060;
+  border-radius: 4px;
+}
+.warnings ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+
+.paper {
+  width: 8.5in;
+  max-width: 100%;
+  min-height: 11in;
+  margin: 0 auto 3rem;
+  padding: 0.5in 0.6in;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .paper { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+  a { color: inherit; text-decoration: none; }
+}
+
+@media (max-width: 8.5in) {
+  .paper { padding: 0.35in 16px; min-height: 0; }
+}
+
+/* ---------- resume content ---------- */
+
+.resume-header { text-align: center; margin-bottom: 0.6rem; }
+.resume-header h1 { margin: 0; font-size: 20pt; font-weight: 600; letter-spacing: 0.02em; }
+.contact { margin: 0.2rem 0 0; color: var(--muted); }
+.contact span + span::before { content: "\00b7"; margin: 0 0.6em; }
+.contact a { color: inherit; }
+
+.block { margin-top: 0.7rem; }
+.block h2 {
+  margin: 0 0 0.3rem;
+  padding-bottom: 0.1rem;
+  color: var(--accent);
+  font-size: 11pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  break-after: avoid;
+}
+
+.entry { margin: 0 0 0.45rem; break-inside: avoid; }
+.entry-head { display: flex; justify-content: space-between; gap: 1rem; break-after: avoid; }
+.entry-head .when { flex: none; color: var(--muted); }
+
+.group { margin: 0.2rem 0 0 0.6rem; font-style: italic; break-after: avoid; }
+
+.items { margin: 0.1rem 0 0; padding-left: 1.5rem; }
+.items li { margin: 0.1rem 0; break-inside: avoid; }
+.items li.topic { list-style: none; margin-left: -0.6rem; }
+.items ul { margin: 0.05rem 0; padding-left: 1.2rem; list-style: circle; }
+
+.pub { margin: 0 0 0.35rem 0.6rem; break-inside: avoid; }
+.pub-title { font-weight: 600; }
+.pub .venue { color: var(--muted); }
+
+.skills { width: 100%; border-collapse: collapse; margin-left: 0.6rem; width: calc(100% - 0.6rem); }
+.skills th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--rule); }
+.skills th, .skills td { padding: 0.05rem 0.4rem 0.05rem 0; }
+.skills .num { text-align: center; }
+.skills th:nth-child(3) { text-align: center; }

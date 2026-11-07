@@ -1,0 +1,16 @@
+# The general-purpose resume. Linked from the site as /assets/resume_tim_ewing.pdf.
+# Everything here uses master.yaml as-is (each section's default `order`).
+title: Resume
+
+sections:
+  cu-boulder:
+  muon:
+  spacex:
+  toro:
+  swri:
+  left-hand-robotics:
+  new-horizons:
+  maxwell:
+  coursework:
+  publications:
+  technical-skills:

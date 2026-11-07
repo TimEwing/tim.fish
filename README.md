@@ -1,6 +1,6 @@
 # tim.fish
 
-Tim Ewing's personal website: plain HTML, CSS, and a little vanilla JS. There are no dependencies, no frameworks, and no build step. Every file is served exactly as it is in the repo.
+Tim Ewing's personal website: plain HTML, CSS, and a little vanilla JS. There are no frameworks and no build step, and the only third-party code is one vendored file (`js/vendor/js-yaml.min.js`). Every file is served exactly as it is in the repo.
 
 ## Layout
 
@@ -9,11 +9,13 @@ index.html              Home: profile + project cards. Sends first-time visitors
 about/index.html        About / contact page.
 welcome/index.html      Typewriter "console" intro; its script lives in a <template> on the page.
 projects/<name>/        One page per project (omnichrome, kepler, nh-convert, swri).
-resume/index.html       Redirect to assets/resume_tim_ewing.pdf (so tim.fish/resume works).
+resume/                 Resume as data: master.yaml + variants/*.yaml, rendered by index.html.
+                        Print it to make assets/resume_tim_ewing.pdf. See resume/README.md.
 404.html                Not-found page (GitHub Pages serves it automatically).
 
 css/site.css            The only stylesheet. Colors are CSS variables at the top.
 js/typewriter.js        Drives the /welcome/ animation. Conventions are documented in the file header.
+js/vendor/              Vendored third-party JS (js-yaml, for the resume page).
 
 assets/                 Static media: images/, videos/, and PDFs (resume, papers).
 favicon.ico/.png

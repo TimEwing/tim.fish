@@ -1,0 +1,41 @@
+# Black Rock City / Burning Man volunteer resume (hands-on work, not software).
+title: BRC Resume
+
+basics:
+  name: Tim Ewing
+  citizenship: null        # null removes a field
+  website: null
+  location: Seattle, WA
+
+sections:
+  general-skills:
+
+  brc-2025:
+    heading: BRC 2025
+    title: null
+    start: null
+    end: null
+
+  cu-boulder:
+    heading: Employment History
+    title: BS in Physics
+
+  swri:
+    heading: Employment History
+    title: Satellite flight controller, software engineer (intern)
+    location: null
+    start: 2016
+    order: []              # header line only, no bullets
+
+  spacex:
+    heading: Employment History
+    title: null
+    location: null
+    order: [high-stress, factory, hv-systems]
+
+  muon:
+    heading: Employment History
+    order: [climate-sats, flight-director]
+    items:
+      flight-director:
+        topic: null        # drop the "Mission Operations -" label here

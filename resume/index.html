@@ -1,15 +1,23 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; url=/assets/resume_tim_ewing.pdf">
-        <script type="text/javascript">
-            window.location.href = "/assets/resume_tim_ewing.pdf"
-        </script>
-        <title>Resume | tim.fish</title>
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href='/assets/resume_tim_ewing.pdf'>link to my resume</a>.
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume | tim.fish</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/resume/resume.css">
+</head>
+<body>
+  <!-- Rendered by resume.js from master.yaml + variants/<v>.yaml. See README.md in this folder. -->
+  <nav class="toolbar no-print">
+    <a href="/">&larr; tim.fish</a>
+    <a href="/assets/resume_tim_ewing.pdf">PDF</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </nav>
+  <div id="warnings" class="warnings no-print" hidden></div>
+  <main id="resume" class="paper"></main>
+
+  <script src="/js/vendor/js-yaml.min.js"></script>
+  <script src="/resume/resume.js"></script>
+</body>
 </html>
