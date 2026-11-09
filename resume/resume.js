@@ -135,8 +135,14 @@
     },
 
     publications(s) {
+      // The section's `me` (e.g. "Ewing, Timothy") is wrapped in <strong> wherever it appears in an author list
+      // (styled in the accent color in resume.css, so it doesn't compete with the bold title).
+      const authors = (text) => {
+        const parts = String(text || "").split(s.me || "\0");
+        return parts.flatMap((part, i) => (i ? [el("strong", null, s.me), part] : [part]));
+      };
       return el("div", "pubs", ...s.list.map((p) =>
-        el("div", "pub", el("div", "pub-title", p.title), el("div", null, p.authors), el("div", "venue", p.venue))));
+        el("div", "pub", el("div", "pub-title", p.title), el("div", null, ...authors(p.authors)), el("div", "venue", p.venue))));
     },
 
     skills(s) {

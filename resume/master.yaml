@@ -68,7 +68,7 @@ sections:
     location: Redmond, Washington
     start: 2022
     end: 2024
-    order: [daq-officer, jupyter, drivers, computer-vision]
+    order: [daq-officer, safety, jupyter, drivers, networking, computer-vision]
     items:
       # "Topic - sentence" phrasing (Resume.pdf, 2024)
       daq-officer:
@@ -92,6 +92,16 @@ sections:
           Wrote code that reliably detects the location of a component in an image using OpenCV's
           SIFT+FLANN homography-finding algorithm in Python, enabling huge gains in successfully
           screened unit failures for Starlink Space Laser production.
+      safety:
+        topic: Test Safety
+        text: >-
+          Built test systems and made critical safety decisions for high-voltage (>10 kV),
+          high-current (>1000 A), high-pressure (>3000 psi), and ultra-high-vacuum (<1e-8 torr) tests.
+      networking:
+        topic: Networking
+        text: >-
+          Debugged complex networked systems using both software tools (tcpdump, ip-netns, ifconfig)
+          and electrical tools (multimeters, oscilloscopes, current transformers).
 
       # Plain-bullet phrasing (site resume, 2023)
       networking-bullet:
@@ -131,7 +141,7 @@ sections:
     location: Longmont, Colorado
     start: 2021
     end: 2022
-    order: [path-planning, topology, devops]
+    order: [path-planning, goal, topology, devops]
     items:
       path-planning:
         topic: Software
@@ -149,6 +159,9 @@ sections:
         text: >-
           Helped containerize path-planning code using Docker and deployed containers into Pulsar
           clusters in Kubernetes.
+      goal:
+        topic: Delivery
+        text: Met the two-year functionality goal for path planning in less than a year.
 
       path-planning-bullet:
         text: Developed complex path-planning algorithms for autonomous landscaping robots in Python.
@@ -169,7 +182,7 @@ sections:
     location: Boulder, Colorado
     start: 2017
     end: 2021
-    order: [cygnss-ops, cygnss-data, lucy-ops, lucy-software]
+    order: [cygnss-ops, cygnss-data, lucy-ops, lucy-software, lambert, fortran]
     items:
       cygnss-ops:
         group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
@@ -192,6 +205,14 @@ sections:
         group: "Lucy: NASA Discovery Class Mission"
         topic: Software
         text: Built a web-based mission planning tool using Python and Django.
+      lambert:
+        group: Other Projects
+        topic: Software
+        text: Developed a web interface for an in-house orbital trajectory analysis tool (Lambert solver).
+      fortran:
+        group: Other Projects
+        topic: Teaching
+        text: Translated concepts from Fortran to Python to help teach established scientists.
 
       cygnss-safe-mode-bullet:
         group: CYGNSS - NASA Earth System Science Pathfinder Mission
@@ -227,13 +248,16 @@ sections:
     location: Longmont, Colorado
     start: 2016
     end: 2017
-    order: [firmware]
+    order: [firmware, comms]
     items:
       firmware:
         topic: Firmware
         text: >-
           Implemented algorithms for controlling motors and pneumatics for a snow-clearing robot
           using a Raspberry Pi and ROS.
+      comms:
+        topic: Software
+        text: Wrote base-station-to-robot communications using Python and ROS.
       snow-robot-bullet:
         text: Developed software for controlling a snow-clearing robot.
       raspberry-pi-bullet:
@@ -304,6 +328,7 @@ sections:
   publications:
     kind: publications
     heading: Publications
+    me: Ewing, Timothy   # highlighted in the author lists
     items:
       cygnss-django:
         title: Django as a Mission Planning Tool Interface for the CYGNSS Mission
@@ -352,8 +377,6 @@ sections:
       automotive:
         topic: Basic Automotive Maintenance
         text: oil, fluids, filters, wipers, battery replacement
-      physics:
-        topic: Physics
 
   # ---------------------------------------------------------------- volunteering / life
 

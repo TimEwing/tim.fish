@@ -44,7 +44,7 @@ google-chrome --headless --no-pdf-header-footer --window-size=1200,1000 --virtua
 
 An `entry` item has a `text` and an optional `topic`. With a topic it renders as "**Topic** - text", and without one it's a plain bullet. It can also have `group` (an italic sub-heading such as a mission name; consecutive items with the same group share it) and `details` (a list of nested bullets).
 
-`publications` items have `title`, `authors` and `venue`. `skills` items have `name`, `since`, `until` (leave it out for "Present"), `level`, and optionally `years`. If `years` is missing, it's computed from since..until, or since..this year, so it never goes stale.
+`publications` items have `title`, `authors` and `venue`, and the section's `me` (written as it appears in the author lists, e.g. `Ewing, Timothy`) is highlighted in the accent color in every author list. `skills` items have `name`, `since`, `until` (leave it out for "Present"), `level`, and optionally `years`. If `years` is missing, it's computed from since..until, or since..this year, so it never goes stale.
 
 Alternate phrasings of the same fact go in master as separate items (e.g. `daq-officer` and `daq-officer-bullet`). The section's `order` picks the default, and variants pick whichever they want.
 

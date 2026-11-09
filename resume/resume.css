@@ -159,6 +159,10 @@ body {
 
 .pub { margin: 0 0 0.35rem 0.6rem; break-inside: avoid; }
 .pub-title { font-weight: 600; }
+.pub-title ~ div { margin-left: 1rem; }   /* authors + venue tucked under the title, like bullets under a job */
+/* My name in the author list (the section's `me`): accent-colored, so it stands out without competing
+   with the black bold title. */
+.pub-title ~ div strong { font-weight: 600; color: var(--accent); white-space: nowrap; }
 .pub .venue { color: var(--muted); }
 
 .skills { width: 100%; border-collapse: collapse; margin-left: 0.6rem; width: calc(100% - 0.6rem); }
