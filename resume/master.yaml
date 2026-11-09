@@ -23,6 +23,7 @@
 
 basics:
   name: Timothy James Ewing
+  headline: Mission Operations, Automation, and Test Engineer   # shown under the name
   citizenship: US Citizen
   location: Seattle, Washington
   email: tim@tim.fish
@@ -51,7 +52,7 @@ sections:
     location: Remote
     start: 2024
     end: 2026   # left Aug 14, 2026
-    order: [leops, procedures, anomalies, fdir, planning, devops]
+    order: [leops, procedures, anomalies, fdir, telemetry, planning, devops, onboarding]
     items:
       leops:
         topic: Launch Operations
@@ -61,7 +62,7 @@ sections:
         text: Wrote, tested, and executed procedures for commissioning and routine operations.
       anomalies:
         topic: Anomaly Response
-        text: On-call first responder for anomalies as the fleet grew from 2 to 10 satellites.
+        text: Remote on-call first responder for anomalies as the fleet grew from 2 to 10 satellites.
       fdir:
         topic: Automation
         text: Built a ground-side fault response system, mitigating about one alert per satellite per day.
@@ -71,9 +72,21 @@ sections:
       devops:
         topic: DevOps
         text: Deployed and maintained Docker-based ground software on AWS and Kubernetes using Terragrunt.
+      telemetry:
+        topic: Telemetry
+        text: Built spacecraft telemetry dashboards with Grafana and InfluxDB.
+      alerting:
+        topic: Alerting
+        text: Helped connect satellite telemetry alerts to PagerDuty for on-call paging.
+      onboarding:
+        topic: Training
+        text: Onboarded and trained new operations engineers and operators.
       solo-night:
         topic: Launch Operations
         text: Solo-staffed an overnight launch shift with four just-launched satellites.
+      uplinks:
+        topic: Pass Planning
+        text: Scheduled uplinks from TLE-based pass predictions and in-house tools.
       antenna:
         topic: Commissioning
         text: Helped commission a new satellite's high-speed antenna within a week of starting.
@@ -93,7 +106,7 @@ sections:
     location: Redmond, Washington
     start: 2022
     end: 2024
-    order: [daq-officer, safety, jupyter, drivers, networking, computer-vision]
+    order: [daq-officer, safety, ground-stations, jupyter, drivers, networking, computer-vision]
     items:
       # "Topic - sentence" phrasing (Resume.pdf, 2024)
       daq-officer:
@@ -103,8 +116,11 @@ sections:
         topic: Software
         text: Integrated Jupyter into test infrastructure, opening it up to hardware engineers.
       drivers:
-        topic: Firmware
+        topic: Drivers
         text: Wrote drivers to bring new power supplies and data acquisition devices into the test framework.
+      ground-stations:
+        topic: Ground Stations
+        text: Tested TWTAs and gimbals for Ku- and Ka-band satellite ground station antennas.
       computer-vision:
         topic: Computer Vision
         text: Built an OpenCV inspection that caught far more Starlink Space Laser unit failures.
@@ -187,7 +203,7 @@ sections:
     location: Boulder, Colorado
     start: 2017
     end: 2021
-    order: [cygnss-ops, cygnss-data, lucy-ops, lucy-software, lambert, fortran]
+    order: [cygnss-ops, simpl, cygnss-data, lucy-ops, lucy-software, lambert, fortran]
     items:
       cygnss-ops:
         group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
@@ -197,6 +213,10 @@ sections:
         group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
         topic: Data Analysis
         text: Cut data processing from 45+ to under 5 minutes, doubling satellite contact cadence.
+      simpl:
+        group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
+        topic: Mission Planning
+        text: Worked on SiMPL, an in-house tool for pass scheduling and uplink timing.
       lucy-ops:
         group: "Lucy: NASA Discovery Class Mission"
         topic: Mission Operations
@@ -356,6 +376,7 @@ sections:
       aws:        { name: AWS, periods: [[2021, 2022], [2024, 2026]], level: Moderate }          # Toro, Muon
       docker:     { name: Docker, since: 2021, until: 2026, level: High }                         # Toro, SpaceX, Muon
       terraform:  { name: "Terraform, Terragrunt", since: 2024, until: 2026, level: Moderate }   # Muon
+      grafana:    { name: Grafana, since: 2022, until: 2026, level: Moderate }                     # SpaceX, Muon
       sql:        { name: SQL, periods: [[2017, 2021], [2024, 2026]], level: Moderate }          # SwRI (Django), Muon (SQLAlchemy)
       cpp:        { name: C++, since: 2014, until: 2017, years: 4, level: Moderate }
       java:       { name: Java, since: 2012, until: 2018, years: 7, level: Moderate }
@@ -364,6 +385,7 @@ sections:
       javascript: { name: "JavaScript, HTML", since: 2016, level: Moderate }
       cad:        { name: "SolidWorks, Fusion 360", since: 2015, until: 2020, years: 5, level: Moderate }
       t-and-m:    { name: Test & Measurement Equipment, since: 2016, level: High }   # school labs on; SpaceX: scopes, DAQ, HV/vacuum test
+      gmat:       { name: GMAT (open-source STK alternative), since: 2020, until: 2021, level: Basic }   # SwRI, last ~year
 
   general-skills:
     kind: entry
@@ -383,6 +405,23 @@ sections:
         text: oil, fluids, filters, wipers, battery replacement
 
   # ---------------------------------------------------------------- volunteering / life
+
+  burning-man-2026:
+    kind: entry
+    heading: Field Work
+    title: Department of Public Works
+    org: Black Rock City, Nevada
+    start: 2026
+    items:
+      heat:
+        topic: Heavy Equipment
+        text: Volunteer ground crew for HEaT (Heavy Equipment and Transport).
+      resto:
+        topic: Playa Restoration
+        text: Paid crew clearing debris from the desert after the event.
+      remote:
+        topic: Remote Deployment
+        text: Worked on site in a remote desert for two months in close quarters with colleagues.
 
   brc-2025:
     kind: entry

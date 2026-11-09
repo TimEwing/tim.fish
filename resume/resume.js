@@ -82,23 +82,24 @@
 
   // Contact fields that get a small label in the header. Anything else in `basics` (citizenship,
   // location, ...) is self-explanatory and goes unlabeled on the line above.
-  const CONTACT_LABELS = { email: "Email", phone: "Cell", website: "Personal site" };
+  const CONTACT_LABELS = { email: "Email", phone: "Cell", website: "Personal site", resume: "Full resume" };
 
   function renderHeader(basics) {
-    const { name, ...rest } = basics;
+    const { name, headline, ...rest } = basics;
     const about = el("p", "contact about");
     const reach = el("div", "contact reach");
     for (const [key, value] of Object.entries(rest)) {
       let node = String(value);
       if (key === "email") node = Object.assign(el("a", null, node), { href: `mailto:${value}` });
-      else if (key === "website") node = Object.assign(el("a", null, node), { href: value });
+      else if (key === "website" || key === "resume") node = Object.assign(el("a", null, node), { href: value });
       const label = CONTACT_LABELS[key];
       if (label) reach.append(el("span", "contact-label", label), el("span", "contact-value", node));
       else about.append(el("span", null, node));
     }
     // Name + about on the left, contact methods as a small label/value table on the right.
     return el("header", "resume-header",
-      el("div", "who", el("h1", null, name), about.childNodes.length ? about : null),
+      el("div", "who", el("h1", null, name), headline ? el("p", "headline", headline) : null,
+        about.childNodes.length ? about : null),
       reach.childNodes.length ? reach : null);
   }
 

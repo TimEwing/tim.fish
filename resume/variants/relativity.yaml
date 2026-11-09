@@ -4,11 +4,14 @@
 # Leads with mission planning tools, containers/cloud, and instrument-facing software. One page.
 title: Resume
 
+basics:
+  resume: https://tim.fish/resume/   # "Full resume" link in the contact block
+
 sections:
   cu-boulder:
 
   muon:
-    order: [planning, devops, fdir, leops, anomalies]
+    order: [planning, uplinks, devops, telemetry, fdir, leops]
     items:
       planning:
         text: Built an extensible orbit analysis tool for finding observation opportunities.
@@ -20,16 +23,22 @@ sections:
     order: [devops, path-planning]
 
   swri:
-    order: [lucy-software, lucy-ops, cygnss-data, cygnss-ops, lambert]
+    # No mission sub-headings here: each bullet names its mission, which saves three lines.
+    order: [planning-tools, lucy-ops, cygnss-data, lambert]
     items:
+      planning-tools:
+        topic: Mission Planning
+        text: Worked on Django planning tools for Lucy observations and CYGNSS pass scheduling.
       lucy-ops:
-        group: "Lucy: NASA Discovery Class Mission to the Trojan Asteroids"
-      lucy-software:
-        group: "Lucy: NASA Discovery Class Mission to the Trojan Asteroids"
-        text: Built a Python and Django tool for planning instrument observations.
+        group: null
+      cygnss-data:
+        group: null
+        text: Cut CYGNSS data processing from 45+ to under 5 minutes, doubling contact cadence.
+      lambert:
+        group: null
 
   new-horizons:
     order: [optics, signal-processing]
 
   technical-skills:
-    order: [python, docker, kubernetes, aws, terraform, git, bash, sql]
+    order: [python, docker, kubernetes, aws, terraform, grafana, git, bash, sql]

@@ -5,7 +5,7 @@ The resume is data plus one HTML page. There's no build step and nothing to inst
 ```
 resume/
   master.yaml          Everything I've ever done. The single source of facts.
-  variants/<name>.yaml One file per tailored resume (public, brc, ...). Each one overrides master.
+  variants/<name>.yaml One file per tailored resume (public, brc2026, leidos, ...). Each one overrides master.
   index.html           The page. /resume/?v=<name> renders that variant (default: public).
   resume.js            Loads + merges the YAML and renders it. Vanilla JS.
   resume.css           Print-first styling, US Letter.
@@ -18,7 +18,7 @@ js/vendor/js-yaml.min.js   YAML parser (vendored, pinned; no CDN).
 The site's "Resume" links go to https://tim.fish/resume/, which renders the public variant live from the YAML, so pushing a YAML change updates it. There's no committed PDF. The old `/assets/resume_tim_ewing.pdf` URL redirects to `/resume/` (see `404.html`). To make a PDF, for a job application say:
 
 1. From the **repo root**: `python3 -m http.server 8000`. Browsers won't load the YAML if you open `index.html` straight from disk (`file://`).
-2. Open http://localhost:8000/resume/ (or `/resume/?v=brc`). If the data has problems, a yellow warning box appears at the top. It doesn't print.
+2. Open http://localhost:8000/resume/ (or `/resume/?v=leidos`). If the data has problems, a yellow warning box appears at the top. It doesn't print.
 3. Either press Ctrl+P → "Save as PDF" in Chrome (margins: Default; headers/footers can stay on, since the page leaves no room for the header), or run the headless version:
 
 ```sh
@@ -32,7 +32,7 @@ google-chrome --headless --no-pdf-header-footer --window-size=1200,1000 --virtua
 
 ## The data model
 
-`master.yaml` has `basics` (name and contact info, shown in the header in the order written) and `sections`. In the header, `email`, `phone` and `website` sit on the right as a small labeled table (Email / Cell / Personal site, set in `CONTACT_LABELS` in `resume.js`), and any other fields, like citizenship and location, go unlabeled under the name. Each section has an id and:
+`master.yaml` has `basics` (name, an optional one-line `headline` shown under it, and contact info, shown in the header in the order written) and `sections`. In the header, `email`, `phone`, `website` and `resume` sit on the right as a small labeled table (Email / Cell / Personal site / Full resume, set in `CONTACT_LABELS` in `resume.js`), and any other fields, like citizenship and location, go unlabeled under the name. Each section has an id and:
 
 | field | meaning |
 |---|---|

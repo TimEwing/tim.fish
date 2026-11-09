@@ -1,39 +1,27 @@
 # Tailored for Leidos: Satellite Systems Engineer, Antarctic Support Contract (job R-00195668).
 # SATCOM ground terminal O&M with Antarctic deployments. Leads with hands-on ops, procedures,
-# troubleshooting, test equipment, safety, and antenna/RF work; software is secondary.
+# troubleshooting, ground station hardware, test equipment, safety, and remote field work.
 title: Resume
+
+basics:
+  resume: https://tim.fish/resume/   # "Full resume" link in the contact block
 
 sections:
   cu-boulder:
 
   muon:
-    order: [procedures, anomalies, antenna, leops, fdir]
+    order: [procedures, anomalies, uplinks, telemetry, fdir, onboarding, antenna, leops]
 
   spacex:
-    order: [safety, networking, drivers, daq-officer]
+    order: [ground-stations, safety, networking, daq-officer]
 
   toro:
-    order: [path-planning]
+    order: []              # header line only
 
   swri:
-    order: [cygnss-ops, cygnss-data, fortran]
-    items:
-      fortran:
-        topic: Training
+    order: [cygnss-ops, simpl, cygnss-data]
 
-  left-hand-robotics:
-    order: [firmware]
-
-  maxwell:
-    heading: Projects
-    order: [about, calibration, tim]
-    items:
-      about:
-        topic: SATCOM
-        text: Worked on MAXWELL, a 6U CubeSat built to test S-band and X-band antennas.
-
-  publications:
-    order: [cygnss-ops]
+  burning-man-2026:
 
   technical-skills:
-    order: [t-and-m, python, bash, git, docker, sql, cad]
+    order: [t-and-m, python, gmat, grafana, bash, docker, cad]

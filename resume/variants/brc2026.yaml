@@ -1,8 +1,9 @@
-# Black Rock City / Burning Man volunteer resume (hands-on work, not software).
+# Black Rock City / Burning Man volunteer resume (hands-on work, not software), as submitted for the 2026 burn.
 title: BRC Resume
 
 basics:
   name: Tim Ewing
+  headline: null           # the software/ops headline doesn't fit this one
   citizenship: null        # null removes a field
   website: null
   location: Seattle, WA
