@@ -1,0 +1,39 @@
+# Tailored for Leidos: Satellite Systems Engineer, Antarctic Support Contract (job R-00195668).
+# SATCOM ground terminal O&M with Antarctic deployments. Leads with hands-on ops, procedures,
+# troubleshooting, test equipment, safety, and antenna/RF work; software is secondary.
+title: Resume
+
+sections:
+  cu-boulder:
+
+  muon:
+    order: [procedures, anomalies, antenna, leops, fdir]
+
+  spacex:
+    order: [safety, networking, drivers, daq-officer]
+
+  toro:
+    order: [path-planning]
+
+  swri:
+    order: [cygnss-ops, cygnss-data, fortran]
+    items:
+      fortran:
+        topic: Training
+
+  left-hand-robotics:
+    order: [firmware]
+
+  maxwell:
+    heading: Projects
+    order: [about, calibration, tim]
+    items:
+      about:
+        topic: SATCOM
+        text: Worked on MAXWELL, a 6U CubeSat built to test S-band and X-band antennas.
+
+  publications:
+    order: [cygnss-ops]
+
+  technical-skills:
+    order: [t-and-m, python, bash, git, docker, sql, cad]

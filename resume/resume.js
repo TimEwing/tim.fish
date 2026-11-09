@@ -147,12 +147,16 @@
 
     skills(s) {
       const thisYear = new Date().getFullYear();
+      // `periods: [[2021, 2022], [2024]]` for a skill used in separate stretches; otherwise since..until.
+      // A missing end means "Present". Years add up across the stretches.
+      const periodsOf = (k) => (k.periods || [[k.since, k.until]]).map(([from, to]) => [from, to ?? null]);
       const head = el("tr", null, ...["Skill", "Active Use", "Years of Experience", "Experience Level"].map((h) => el("th", null, h)));
       const rows = s.list.map((k) => {
-        const years = k.years ?? (k.until ?? thisYear) - k.since;
+        const periods = periodsOf(k);
+        const years = k.years ?? periods.reduce((sum, [from, to]) => sum + (to ?? thisYear) - from, 0);
         return el("tr", null,
           el("td", null, k.name),
-          el("td", null, `${k.since} - ${k.until ?? "Present"}`),
+          el("td", null, periods.map(([from, to]) => `${from} - ${to ?? "Present"}`).join(", ")),
           el("td", "num", String(years)),
           el("td", null, k.level || ""));
       });

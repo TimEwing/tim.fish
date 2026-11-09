@@ -55,9 +55,7 @@ sections:
     items:
       leops:
         topic: Launch Operations
-        text: >-
-          Flight Director and Anomaly Coordinator for the launch of 9 satellites, including a solo
-          overnight shift with four just-launched satellites.
+        text: Flight Director and Anomaly Coordinator for the launch of 9 satellites.
       procedures:
         topic: Mission Operations
         text: Wrote, tested, and executed procedures for commissioning and routine operations.
@@ -72,10 +70,13 @@ sections:
         text: Built an orbit analysis tool that let stakeholders find observation opportunities.
       devops:
         topic: DevOps
-        text: Deployed and maintained ground software on AWS and Kubernetes using Terragrunt.
+        text: Deployed and maintained Docker-based ground software on AWS and Kubernetes using Terragrunt.
+      solo-night:
+        topic: Launch Operations
+        text: Solo-staffed an overnight launch shift with four just-launched satellites.
       antenna:
         topic: Commissioning
-        text: Helped commission a new satellite's high-speed antenna in my first week.
+        text: Helped commission a new satellite's high-speed antenna within a week of starting.
 
       # Short phrasings (BRC resume, 2025)
       climate-sats:
@@ -96,36 +97,23 @@ sections:
     items:
       # "Topic - sentence" phrasing (Resume.pdf, 2024)
       daq-officer:
-        topic: Mission Operations
-        text: >-
-          Wrote test plans and served as Data Acquisition Officer during a high-pressure root
-          cause investigation. Made the call to evacuate the area during a catastrophic test failure.
+        topic: Test Operations
+        text: Wrote test plans and was Data Acquisition Officer for a root cause investigation.
       jupyter:
         topic: Software
-        text: >-
-          Created a novel integration between existing test infrastructure and Jupyter, increasing
-          development speed and making software accessible to hardware engineers.
+        text: Integrated Jupyter into test infrastructure, opening it up to hardware engineers.
       drivers:
         topic: Firmware
-        text: >-
-          Wrote drivers to integrate new power supplies, data acquisition devices, and other test
-          equipment into the existing testing framework.
+        text: Wrote drivers to bring new power supplies and data acquisition devices into the test framework.
       computer-vision:
         topic: Computer Vision
-        text: >-
-          Wrote code that reliably detects the location of a component in an image using OpenCV's
-          SIFT+FLANN homography-finding algorithm in Python, enabling huge gains in successfully
-          screened unit failures for Starlink Space Laser production.
+        text: Built an OpenCV inspection that caught far more Starlink Space Laser unit failures.
       safety:
         topic: Test Safety
-        text: >-
-          Built test systems and made critical safety decisions for high-voltage (>10 kV),
-          high-current (>1000 A), high-pressure (>3000 psi), and ultra-high-vacuum (<1e-8 torr) tests.
+        text: Made safety calls on high-energy tests, including an evacuation during a catastrophic failure.
       networking:
         topic: Networking
-        text: >-
-          Debugged complex networked systems using both software tools (tcpdump, ip-netns, ifconfig)
-          and electrical tools (multimeters, oscilloscopes, current transformers).
+        text: Debugged networked systems with everything from tcpdump to oscilloscopes.
 
       # Plain-bullet phrasing (site resume, 2023)
       networking-bullet:
@@ -169,23 +157,16 @@ sections:
     items:
       path-planning:
         topic: Software
-        text: >-
-          Reduced a highly complex path-planning problem for autonomous lawn mowers down to the
-          Traveling Salesman Problem using Python GEOS libraries, then used Google's OR-Tools library
-          to generate full paths.
+        text: Reduced mower path planning to a Traveling Salesman Problem, solved with Google's OR-Tools.
       topology:
         topic: Topology
-        text: >-
-          Developed a novel map projection using concepts from differential geometry to better map
-          paths to real-world terrain.
+        text: Developed a map projection using differential geometry to plan paths on real-world terrain.
       devops:
         topic: DevOps
-        text: >-
-          Helped containerize path-planning code using Docker and deployed containers into Pulsar
-          clusters in Kubernetes.
+        text: Containerized path-planning code with Docker and deployed it to Pulsar clusters on Kubernetes.
       goal:
         topic: Delivery
-        text: Met the two-year functionality goal for path planning in less than a year.
+        text: Met the two-year path-planning goal in under a year.
 
       path-planning-bullet:
         text: Developed complex path-planning algorithms for autonomous landscaping robots in Python.
@@ -211,32 +192,27 @@ sections:
       cygnss-ops:
         group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
         topic: Mission Operations
-        text: >-
-          Issued commands live during nominal passes of satellites over ground stations to replay
-          data. Successfully replayed critical data when a satellite came up in safe mode while
-          solo-staffing a ground contact.
+        text: Recovered critical data from a safe-mode satellite while solo-staffing a pass.
       cygnss-data:
         group: "CYGNSS: NASA Pathfinder Mission, Constellation of 8 LEO weather satellites"
         topic: Data Analysis
-        text: >-
-          Reduced data processing time from 45+ minutes to less than 5 and automated missing data
-          playback, resulting in doubled satellite contact cadence and improved delivery time.
+        text: Cut data processing from 45+ to under 5 minutes, doubling satellite contact cadence.
       lucy-ops:
         group: "Lucy: NASA Discovery Class Mission"
         topic: Mission Operations
-        text: Worked with scientists to define requirements for Lucy's command sequence editor.
+        text: Defined requirements for Lucy's command sequence editor with the science team.
       lucy-software:
         group: "Lucy: NASA Discovery Class Mission"
         topic: Software
-        text: Built a web-based mission planning tool using Python and Django.
+        text: Built a web-based mission planning tool in Python and Django.
       lambert:
         group: Other Projects
         topic: Software
-        text: Developed a web interface for an in-house orbital trajectory analysis tool (Lambert solver).
+        text: Built a web interface for an in-house orbital trajectory tool (Lambert solver).
       fortran:
         group: Other Projects
         topic: Teaching
-        text: Translated concepts from Fortran to Python to help teach established scientists.
+        text: Taught Python to established scientists by translating concepts from Fortran.
 
       cygnss-safe-mode-bullet:
         group: CYGNSS - NASA Earth System Science Pathfinder Mission
@@ -276,12 +252,10 @@ sections:
     items:
       firmware:
         topic: Firmware
-        text: >-
-          Implemented algorithms for controlling motors and pneumatics for a snow-clearing robot
-          using a Raspberry Pi and ROS.
+        text: Implemented motor and pneumatic control for a snow-clearing robot on a Raspberry Pi with ROS.
       comms:
         topic: Software
-        text: Wrote base-station-to-robot communications using Python and ROS.
+        text: Wrote base-station-to-robot communications in Python and ROS.
       snow-robot-bullet:
         text: Developed software for controlling a snow-clearing robot.
       raspberry-pi-bullet:
@@ -303,10 +277,10 @@ sections:
         text: Designed an optical filter conversion algorithm for unresolved Pluto and Charon observations.
       signal-processing:
         topic: Signal Processing
-        text: Implemented a least-squares Fourier series fit to analyze the Pluto/Charon phase curve.
+        text: Fit a least-squares Fourier series to the Pluto/Charon phase curve.
       software:
         topic: Software
-        text: Built a modular, testable pipeline in Python using Jupyter notebooks and Bash scripts.
+        text: Built a modular, testable analysis pipeline in Python.
       software-short-bullet:
         text: Built a modular, testable pipeline in Python.
 
@@ -326,7 +300,7 @@ sections:
         text: Developed validation and calibration methods for a 6-axis gyro/accelerometer.
       tim:
         topic: Communication
-        text: Defended conclusions at a Technical Interchange Meeting with NASA personnel.
+        text: Defended conclusions at a Technical Interchange Meeting with NASA.
 
   coursework:
     kind: entry
@@ -378,12 +352,18 @@ sections:
       python:     { name: Python, since: 2014, level: Expert }
       git:        { name: Git, since: 2012, level: High }
       bash:       { name: Unix Shell (Bash), since: 2012, level: High }
+      kubernetes: { name: Kubernetes, periods: [[2021, 2022], [2024, 2026]], level: Moderate }   # Toro, Muon
+      aws:        { name: AWS, periods: [[2021, 2022], [2024, 2026]], level: Moderate }          # Toro, Muon
+      docker:     { name: Docker, since: 2021, until: 2026, level: High }                         # Toro, SpaceX, Muon
+      terraform:  { name: "Terraform, Terragrunt", since: 2024, until: 2026, level: Moderate }   # Muon
+      sql:        { name: SQL, periods: [[2017, 2021], [2024, 2026]], level: Moderate }          # SwRI (Django), Muon (SQLAlchemy)
       cpp:        { name: C++, since: 2014, until: 2017, years: 4, level: Moderate }
       java:       { name: Java, since: 2012, until: 2018, years: 7, level: Moderate }
       go:         { name: Go, since: 2021, until: 2022, years: 1, level: Moderate }
       matlab:     { name: MATLAB, since: 2017, until: 2021, years: 4, level: Moderate }
       javascript: { name: "JavaScript, HTML", since: 2016, level: Moderate }
       cad:        { name: "SolidWorks, Fusion 360", since: 2015, until: 2020, years: 5, level: Moderate }
+      t-and-m:    { name: Test & Measurement Equipment, since: 2016, level: High }   # school labs on; SpaceX: scopes, DAQ, HV/vacuum test
 
   general-skills:
     kind: entry

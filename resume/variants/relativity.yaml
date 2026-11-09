@@ -1,0 +1,35 @@
+# Tailored for a Relativity Space role building containerized (Docker) software for onboard mission
+# planning and instrument management, via a contact there. The Greenhouse posting first used for this
+# (job 8807517002, Senior Mission Design and Navigation Engineer) may not be the actual role.
+# Leads with mission planning tools, containers/cloud, and instrument-facing software. One page.
+title: Resume
+
+sections:
+  cu-boulder:
+
+  muon:
+    order: [planning, devops, fdir, leops, anomalies]
+    items:
+      planning:
+        text: Built an extensible orbit analysis tool for finding observation opportunities.
+
+  spacex:
+    order: [drivers, jupyter, daq-officer]
+
+  toro:
+    order: [devops, path-planning]
+
+  swri:
+    order: [lucy-software, lucy-ops, cygnss-data, cygnss-ops, lambert]
+    items:
+      lucy-ops:
+        group: "Lucy: NASA Discovery Class Mission to the Trojan Asteroids"
+      lucy-software:
+        group: "Lucy: NASA Discovery Class Mission to the Trojan Asteroids"
+        text: Built a Python and Django tool for planning instrument observations.
+
+  new-horizons:
+    order: [optics, signal-processing]
+
+  technical-skills:
+    order: [python, docker, kubernetes, aws, terraform, git, bash, sql]

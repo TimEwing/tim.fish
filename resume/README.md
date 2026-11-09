@@ -9,7 +9,7 @@ resume/
   index.html           The page. /resume/?v=<name> renders that variant (default: public).
   resume.js            Loads + merges the YAML and renders it. Vanilla JS.
   resume.css           Print-first styling, US Letter.
-  fonts/               IBM Plex Sans (vendored .woff2 files, OFL license).
+  fonts/               IBM Plex Sans + IBM Plex Mono (vendored .woff2 files, OFL license).
 js/vendor/js-yaml.min.js   YAML parser (vendored, pinned; no CDN).
 ```
 
@@ -44,7 +44,7 @@ google-chrome --headless --no-pdf-header-footer --window-size=1200,1000 --virtua
 
 An `entry` item has a `text` and an optional `topic`. With a topic it renders as "**Topic** - text", and without one it's a plain bullet. It can also have `group` (an italic sub-heading such as a mission name; consecutive items with the same group share it) and `details` (a list of nested bullets).
 
-`publications` items have `title`, `authors` and `venue`, and the section's `me` (written as it appears in the author lists, e.g. `Ewing, Timothy`) is highlighted in the accent color in every author list. `skills` items have `name`, `since`, `until` (leave it out for "Present"), `level`, and optionally `years`. If `years` is missing, it's computed from since..until, or since..this year, so it never goes stale.
+`publications` items have `title`, `authors` and `venue`, and the section's `me` (written as it appears in the author lists, e.g. `Ewing, Timothy`) is highlighted in the accent color in every author list. `skills` items have `name`, `since`, `until` (leave it out for "Present"), `level`, and optionally `years`. If `years` is missing, it's computed from since..until, or since..this year, so it never goes stale. For a skill used in separate stretches, use `periods: [[2021, 2022], [2024]]` instead of since/until (a missing end means "Present"): Active Use lists each stretch, and the years add up across them.
 
 Alternate phrasings of the same fact go in master as separate items (e.g. `daq-officer` and `daq-officer-bullet`). The section's `order` picks the default, and variants pick whichever they want.
 
@@ -83,4 +83,4 @@ The rules (implemented by `merge()` in `resume.js`):
 
 - **New job:** add a section to `master.yaml` (copy an existing job), then add its id to the `sections` of each variant that should show it, usually including `public.yaml`.
 - **New tailored resume:** copy `variants/public.yaml` to `variants/<name>.yaml`, edit it, and open `/resume/?v=<name>`.
-- **Changing the look:** `resume.css`. The font is IBM Plex Sans, saved into `fonts/` so the PDF looks the same on every machine. To switch fonts, download the `.woff2` files (e.g. from `https://cdn.jsdelivr.net/npm/@fontsource/<font>@<version>/files/`), put them in `fonts/`, and update the `@font-face` rules and `--font` at the top of `resume.css`.
+- **Changing the look:** `resume.css`. The font is IBM Plex Sans, with IBM Plex Mono for dates and years, both saved into `fonts/` so the PDF looks the same on every machine. To switch fonts, download the `.woff2` files (e.g. from `https://cdn.jsdelivr.net/npm/@fontsource/<font>@<version>/files/`), put them in `fonts/`, and update the `@font-face` rules and `--font` / `--mono` at the top of `resume.css`.

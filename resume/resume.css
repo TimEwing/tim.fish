@@ -6,6 +6,8 @@
 @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: normal; src: url("fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: italic; src: url("fonts/ibm-plex-sans-latin-400-italic.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-style: normal; src: url("fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2"); }
+/* IBM Plex Mono, same source (@fontsource/ibm-plex-mono@5.1.0), for the skills table's date column. */
+@font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-style: normal; src: url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2"); }
 
 :root {
   --ink: #111;
@@ -15,6 +17,7 @@
   --page-bg: #141010;         /* matches css/site.css --bg */
   --link: #55ff55;
   --font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
 }
 
 /* Top margin is 0 so the browser has no room to print its header (date + title); the 0.5in comes back
@@ -148,7 +151,7 @@ body {
 .entry { margin: 0; break-inside: avoid; }
 .entry + .entry { margin-top: calc(0.45rem + var(--gap, 0px)); }
 .entry-head { display: flex; justify-content: space-between; gap: 1rem; break-after: avoid; }
-.entry-head .when { flex: none; color: var(--muted); }
+.entry-head .when { flex: none; color: var(--muted); font-family: var(--mono); font-size: 0.9em; }
 
 .group { margin: 0.2rem 0 0 0.6rem; font-style: italic; break-after: avoid; }
 
@@ -170,3 +173,5 @@ body {
 .skills th, .skills td { padding: 0.05rem 0.4rem 0.05rem 0; }
 .skills .num { text-align: center; }
 .skills th:nth-child(3) { text-align: center; }
+/* Dates and years are set in mono everywhere: here and in the job/degree date column (.when). */
+.skills td:nth-child(2), .skills td.num { font-family: var(--mono); font-size: 0.9em; }
