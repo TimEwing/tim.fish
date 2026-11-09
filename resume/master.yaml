@@ -48,12 +48,36 @@ sections:
     heading: Experience
     title: Operations and Automation Engineer
     org: Muon Space
-    # location: TODO
+    location: Remote
     start: 2024
-    end: Present
-    # TODO: this job only has the two bullets from the BRC resume so far. Add real ones.
-    order: [flight-director]
+    end: 2026   # left Aug 14, 2026
+    order: [leops, procedures, anomalies, fdir, planning, devops]
     items:
+      leops:
+        topic: Launch Operations
+        text: >-
+          Flight Director and Anomaly Coordinator for the launch of 9 satellites, including a solo
+          overnight shift with four just-launched satellites.
+      procedures:
+        topic: Mission Operations
+        text: Wrote, tested, and executed procedures for commissioning and routine operations.
+      anomalies:
+        topic: Anomaly Response
+        text: On-call first responder for anomalies as the fleet grew from 2 to 10 satellites.
+      fdir:
+        topic: Automation
+        text: Built a ground-side fault response system, mitigating about one alert per satellite per day.
+      planning:
+        topic: Mission Planning
+        text: Built an orbit analysis tool that let stakeholders find observation opportunities.
+      devops:
+        topic: DevOps
+        text: Deployed and maintained ground software on AWS and Kubernetes using Terragrunt.
+      antenna:
+        topic: Commissioning
+        text: Helped commission a new satellite's high-speed antenna in my first week.
+
+      # Short phrasings (BRC resume, 2025)
       climate-sats:
         text: Operations and automation engineering for climate satellites.
       flight-director:
