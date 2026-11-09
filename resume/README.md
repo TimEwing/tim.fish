@@ -13,22 +13,26 @@ resume/
 js/vendor/js-yaml.min.js   YAML parser (vendored, pinned; no CDN).
 ```
 
-## Making a PDF
+## Viewing and printing
+
+The site's "Resume" links go to https://tim.fish/resume/, which renders the public variant live from the YAML, so pushing a YAML change updates it. There's no committed PDF. The old `/assets/resume_tim_ewing.pdf` URL redirects to `/resume/` (see `404.html`). To make a PDF, for a job application say:
 
 1. From the **repo root**: `python3 -m http.server 8000`. Browsers won't load the YAML if you open `index.html` straight from disk (`file://`).
 2. Open http://localhost:8000/resume/ (or `/resume/?v=brc`). If the data has problems, a yellow warning box appears at the top. It doesn't print.
-3. Either press Ctrl+P → "Save as PDF" (margins: Default; turn off headers/footers), or run the headless version:
+3. Either press Ctrl+P → "Save as PDF" in Chrome (margins: Default; headers/footers can stay on, since the page leaves no room for the header), or run the headless version:
 
 ```sh
-google-chrome --headless --no-pdf-header-footer --virtual-time-budget=5000 \
-  --print-to-pdf=assets/resume_tim_ewing.pdf "http://localhost:8000/resume/?v=public"
+google-chrome --headless --no-pdf-header-footer --window-size=1200,1000 --virtual-time-budget=5000 \
+  --print-to-pdf=resume_tim_ewing.pdf "http://localhost:8000/resume/?v=public"
 ```
 
-`chromium` works the same way. The site's "Resume" links point at `assets/resume_tim_ewing.pdf`, so regenerate and commit it after changing the public resume. Once pushed, the page also works directly at https://tim.fish/resume/, and you can print from there.
+`chromium` works the same way. Keep `--window-size`: headless Chrome defaults to an 800px-wide window, which is narrow enough to get the phone layout, and then page fitting (below) is skipped.
+
+**Page fitting.** The page always fills a whole number of Letter pages. `fit()` in `resume.js` measures the content, works out how many pages it needs, and spreads the leftover space into the gaps between entries and sections, up to `MAX_GAP` (0.3in) per gap. If the last section is a `skills` table, it's pinned to the bottom of the last page and takes up any space that's still left over. It checks where page breaks fall, so the extra spacing never adds a page. On screen, multi-page resumes show grey lines where the pages will break. To change the feel, edit `MAX_GAP`, or the `1.5 *` weight on section gaps in `resume.css`.
 
 ## The data model
 
-`master.yaml` has `basics` (name and contact info, shown in the header in the order written) and `sections`. Each section has an id and:
+`master.yaml` has `basics` (name and contact info, shown in the header in the order written) and `sections`. In the header, `email`, `phone` and `website` sit on the right as a small labeled table (Email / Cell / Personal site, set in `CONTACT_LABELS` in `resume.js`), and any other fields, like citizenship and location, go unlabeled under the name. Each section has an id and:
 
 | field | meaning |
 |---|---|

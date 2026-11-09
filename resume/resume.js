@@ -80,16 +80,26 @@
     return `${s.start} - ${s.end}`;
   }
 
+  // Contact fields that get a small label in the header. Anything else in `basics` (citizenship,
+  // location, ...) is self-explanatory and goes unlabeled on the line above.
+  const CONTACT_LABELS = { email: "Email", phone: "Cell", website: "Personal site" };
+
   function renderHeader(basics) {
     const { name, ...rest } = basics;
-    const contact = el("p", "contact");
+    const about = el("p", "contact about");
+    const reach = el("div", "contact reach");
     for (const [key, value] of Object.entries(rest)) {
       let node = String(value);
       if (key === "email") node = Object.assign(el("a", null, node), { href: `mailto:${value}` });
       else if (key === "website") node = Object.assign(el("a", null, node), { href: value });
-      contact.append(el("span", null, node));
+      const label = CONTACT_LABELS[key];
+      if (label) reach.append(el("span", "contact-label", label), el("span", "contact-value", node));
+      else about.append(el("span", null, node));
     }
-    return el("header", "resume-header", el("h1", null, name), contact);
+    // Name + about on the left, contact methods as a small label/value table on the right.
+    return el("header", "resume-header",
+      el("div", "who", el("h1", null, name), about.childNodes.length ? about : null),
+      reach.childNodes.length ? reach : null);
   }
 
   function renderItem(item) {
@@ -163,6 +173,95 @@
     }
   }
 
+  // ---------- page fitting ----------
+  // Grows the resume to fill a whole number of Letter pages: extra space goes into the gaps
+  // between entries/sections (capped), and a trailing skills block is pinned to the bottom of
+  // the last page. Measured on screen, which has the same content width as print (7.3in).
+
+  const PX_PER_IN = 96;
+  const PAGE_H = 10 * PX_PER_IN;     // 11in Letter minus the 0.5in top/bottom @page margins in resume.css
+  const MAX_GAP = 0.3 * PX_PER_IN;   // most extra space added between two entries
+  const SAFETY = 12;                 // px of slack: print layout runs a few px taller than screen (row rounding)
+  const narrow = matchMedia("screen and (max-width: 8.5in)");   // "screen": printing must not trigger it
+
+  // Units that the printer won't split (see break-inside/break-after in resume.css).
+  // A section heading travels with the first thing under it.
+  function atoms(pinned) {
+    const list = [];
+    for (const child of root.children) {
+      if (child.classList.contains("fit-spacer")) continue;
+      if (!child.matches("section.block") || child === pinned) { list.push({ from: child, to: child }); continue; }
+      const parts = child.querySelectorAll(":scope > .entry, :scope > .pubs > .pub, :scope > table");
+      if (!parts.length) { list.push({ from: child, to: child }); continue; }
+      parts.forEach((p, i) => list.push({ from: i ? p : child, to: p }));
+    }
+    return list;
+  }
+
+  // Simulates print pagination. Returns where the content ends (in px from the top of the
+  // first page's content area) once atoms that would straddle a page break are pushed down,
+  // and how far the last atom was pushed by the ones before it.
+  function paginate(list) {
+    const origin = root.getBoundingClientRect().top + parseFloat(getComputedStyle(root).paddingTop);
+    let shift = 0, pageEnd = PAGE_H, end = 0, shiftBeforeLast = 0;
+    for (const a of list) {
+      shiftBeforeLast = shift;
+      let t = a.from.getBoundingClientRect().top - origin + shift;
+      let b = a.to.getBoundingClientRect().bottom - origin + shift;
+      while (t >= pageEnd) pageEnd += PAGE_H;
+      if (b > pageEnd && b - t <= PAGE_H) {   // doesn't fit: the printer moves it to the next page
+        shift += pageEnd - t;
+        b += pageEnd - t;
+        pageEnd += PAGE_H;
+      }
+      while (b > pageEnd) pageEnd += PAGE_H;   // taller than a page: it just breaks
+      end = b;
+    }
+    return { end, shiftBeforeLast };
+  }
+
+  const pagesFor = (end) => Math.max(1, Math.ceil((end + SAFETY) / PAGE_H));
+
+  function fit() {
+    root.querySelectorAll(".fit-spacer").forEach((n) => n.remove());
+    root.style.removeProperty("--gap");
+    root.style.removeProperty("--pages");
+    root.classList.remove("multipage");
+    const last = root.lastElementChild;
+    const pinned = last && last.querySelector(":scope > table.skills") ? last : null;
+    root.querySelectorAll(".pinned").forEach((n) => n.classList.remove("pinned"));
+    if (pinned) pinned.classList.add("pinned");
+    if (narrow.matches) return;   // phone layout: different widths, nothing to match
+
+    const list = atoms(pinned);
+    const setGap = (g) => root.style.setProperty("--gap", `${g}px`);
+    const pages = pagesFor(paginate(list).end);
+
+    // Biggest gap (up to MAX_GAP) that doesn't add a page.
+    let lo = 0, hi = MAX_GAP;
+    setGap(hi);
+    if (pagesFor(paginate(list).end) > pages) {
+      for (let i = 0; i < 12; i++) {
+        const mid = (lo + hi) / 2;
+        setGap(mid);
+        if (pagesFor(paginate(list).end) > pages) hi = mid; else lo = mid;
+      }
+      setGap(lo);
+    }
+
+    // Whatever is left over goes above the pinned block, so it sits on the bottom of the last page.
+    if (pinned) {
+      const { shiftBeforeLast } = paginate(list);
+      const origin = root.getBoundingClientRect().top + parseFloat(getComputedStyle(root).paddingTop);
+      const bottom = pinned.getBoundingClientRect().bottom - origin + shiftBeforeLast;
+      const space = pages * PAGE_H - SAFETY - bottom;
+      if (space > 0) pinned.before(Object.assign(el("div", "fit-spacer"), { style: `height:${space}px` }));
+    }
+
+    root.style.setProperty("--pages", pages);
+    root.classList.toggle("multipage", pages > 1);
+  }
+
   function showWarnings() {
     if (!warnings.length) return;
     warningsEl.hidden = false;
@@ -178,6 +277,9 @@
       ]);
       document.title = `${(variant.basics && variant.basics.name) || master.basics.name} - ${variant.title || "Resume"}`;
       render(build(master, variant));
+      await document.fonts.ready;   // measure with the real font, not the fallback
+      fit();
+      narrow.addEventListener("change", fit);
     } catch (err) {
       warnings.push(String(err.message || err));
       if (location.protocol === "file:") {

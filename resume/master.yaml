@@ -74,13 +74,13 @@ sections:
       daq-officer:
         topic: Mission Operations
         text: >-
-          Wrote test plans and served as Data Acquisition Officer during a high pressure root
+          Wrote test plans and served as Data Acquisition Officer during a high-pressure root
           cause investigation. Made the call to evacuate the area during a catastrophic test failure.
       jupyter:
         topic: Software
         text: >-
           Created a novel integration between existing test infrastructure and Jupyter, increasing
-          development speed and making software accessible to Hardware Engineers.
+          development speed and making software accessible to hardware engineers.
       drivers:
         topic: Firmware
         text: >-
@@ -89,8 +89,8 @@ sections:
       computer-vision:
         topic: Computer Vision
         text: >-
-          Wrote code which reliably detects the location of a component in an image using Python's
-          OpenCV SIFT+FLANN homography finding algorithm, enabling huge gains in successfully
+          Wrote code that reliably detects the location of a component in an image using OpenCV's
+          SIFT+FLANN homography-finding algorithm in Python, enabling huge gains in successfully
           screened unit failures for Starlink Space Laser production.
 
       # Plain-bullet phrasing (site resume, 2023)
@@ -102,8 +102,8 @@ sections:
         text: Wrote drivers for power supplies, IR cameras, and other ground support equipment.
       safety-bullet:
         text: >-
-          Built test systems and made critical safety decisions for high voltage (>10kV), high current
-          (>1000A), high pressure (>3000 psi), and ultra-high vacuum (<1e-8 torr) tests.
+          Built test systems and made critical safety decisions for high-voltage (>10 kV), high-current
+          (>1000 A), high-pressure (>3000 psi), and ultra-high-vacuum (<1e-8 torr) tests.
       daq-officer-bullet:
         text: Acted as Data Acquisition Officer for tests during a critical path root cause investigation.
       computer-vision-bullet:
@@ -113,15 +113,15 @@ sections:
 
       # Hands-on / non-software phrasing (BRC resume, 2025)
       high-stress:
-        text: Worked in a high stress, safety critical environment with limited time and resources.
+        text: Worked in a high-stress, safety-critical environment with limited time and resources.
       factory:
         text: >-
           Helped build the satellite factory: debugged power/data for test racks, wrote test
-          software, programmed PLCs, leak checked high pressure systems.
+          software, programmed PLCs, and leak-checked high-pressure systems.
       hv-systems:
         text: >-
-          Applied knowledge to batteries, high voltage (-14kV) and high amperage (1200A) systems,
-          optics, RF.
+          Applied knowledge to batteries, high-voltage (-14 kV) and high-amperage (1200 A) systems,
+          optics, and RF.
 
   toro:
     kind: entry
@@ -136,22 +136,22 @@ sections:
       path-planning:
         topic: Software
         text: >-
-          Reduced a highly complex path planning problem for autonomous lawn mowers down to the
-          Travelling Salesman Problem using Python GEOS libraries, then used Google's OR-Tools library
+          Reduced a highly complex path-planning problem for autonomous lawn mowers down to the
+          Traveling Salesman Problem using Python GEOS libraries, then used Google's OR-Tools library
           to generate full paths.
       topology:
         topic: Topology
         text: >-
           Developed a novel map projection using concepts from differential geometry to better map
-          paths to real world terrain.
+          paths to real-world terrain.
       devops:
         topic: DevOps
         text: >-
-          Helped containerize path planning code using Docker and deployed containers into Pulsar
+          Helped containerize path-planning code using Docker and deployed containers into Pulsar
           clusters in Kubernetes.
 
       path-planning-bullet:
-        text: Developed complex path planning algorithms for autonomous landscaping robots in Python.
+        text: Developed complex path-planning algorithms for autonomous landscaping robots in Python.
       pipeline-bullet:
         text: >-
           Built a modular, reusable, and scalable pipeline for path planning using Docker, Pulsar,
@@ -159,7 +159,7 @@ sections:
       topology-bullet:
         text: Designed a novel projection from 3D surfaces to 2D for planning paths on variable-height terrain.
       goal-bullet:
-        text: Met two-year functionality goal for path planning in less than a year.
+        text: Met a two-year functionality goal for path planning in less than a year.
 
   swri:
     kind: entry
@@ -185,11 +185,11 @@ sections:
           Reduced data processing time from 45+ minutes to less than 5 and automated missing data
           playback, resulting in doubled satellite contact cadence and improved delivery time.
       lucy-ops:
-        group: "LUCY: NASA Discovery Class Mission"
+        group: "Lucy: NASA Discovery Class Mission"
         topic: Mission Operations
-        text: Worked with scientists to define requirements for LUCY's command sequence editor.
+        text: Worked with scientists to define requirements for Lucy's command sequence editor.
       lucy-software:
-        group: "LUCY: NASA Discovery Class Mission"
+        group: "Lucy: NASA Discovery Class Mission"
         topic: Software
         text: Built a web-based mission planning tool using Python and Django.
 
@@ -205,12 +205,12 @@ sections:
         group: CYGNSS - NASA Earth System Science Pathfinder Mission
         text: >-
           Doubled satellite contact cadence and improved data delivery time through automated data
-          validation and replay using Python and bash scripts.
+          validation and replay using Python and Bash scripts.
       lucy-tool-bullet:
-        group: LUCY - NASA Discovery class mission
-        text: Developed a Django/Python based tool for planning instrument observations.
+        group: Lucy - NASA Discovery Class Mission
+        text: Developed a Django/Python-based tool for planning instrument observations.
       lucy-ux-bullet:
-        group: LUCY - NASA Discovery class mission
+        group: Lucy - NASA Discovery Class Mission
         text: Worked with a small team to quickly iterate on UI/UX changes in response to feedback.
       lambert-bullet:
         group: Mission Non-Specific Work
@@ -232,14 +232,14 @@ sections:
       firmware:
         topic: Firmware
         text: >-
-          Implemented algorithms for controlling motors and pneumatics for a snow clearing robot
+          Implemented algorithms for controlling motors and pneumatics for a snow-clearing robot
           using a Raspberry Pi and ROS.
       snow-robot-bullet:
-        text: Developed software for controlling a snow clearing robot.
+        text: Developed software for controlling a snow-clearing robot.
       raspberry-pi-bullet:
         text: >-
-          Programmed a Raspberry Pi using Python and ROS. Software tasks included base station to
-          robot communications and motor/pneumatic control algorithms.
+          Programmed a Raspberry Pi using Python and ROS. Software tasks included base-station-to-robot
+          communications and motor/pneumatic control algorithms.
 
   # ---------------------------------------------------------------- school projects & coursework
 
@@ -255,7 +255,7 @@ sections:
         text: Designed an optical filter conversion algorithm for unresolved Pluto and Charon observations.
       signal-processing:
         topic: Signal Processing
-        text: Implemented least-squares Fourier series fit to analyze Pluto/Charon phase curve.
+        text: Implemented a least-squares Fourier series fit to analyze the Pluto/Charon phase curve.
       software:
         topic: Software
         text: Built a modular, testable pipeline in Python using Jupyter notebooks and Bash scripts.
@@ -266,13 +266,13 @@ sections:
     kind: entry
     heading: Relevant Coursework
     title: Independent Study
-    org: MAXWELL Cubesat
+    org: MAXWELL CubeSat
     order: [calibration, tim]
     items:
       about:
         text: >-
-          Worked with the University of Colorado Nanosat Program on MAXWELL, a 6U cubesat designed
-          to test S-Band and X-Band antennas.
+          Worked with the University of Colorado Nanosat Program on MAXWELL, a 6U CubeSat designed
+          to test S-band and X-band antennas.
       calibration:
         topic: Signal Processing
         text: Developed validation and calibration methods for a 6-axis gyro/accelerometer.
@@ -283,6 +283,8 @@ sections:
   coursework:
     kind: entry
     heading: Relevant Coursework
+    title: Selected Courses
+    org: University of Colorado Boulder
     items:
       physics:
         topic: Physics
@@ -325,14 +327,14 @@ sections:
     heading: Technical Skills
     items:
       python:     { name: Python, since: 2014, level: Expert }
-      git:        { name: git, since: 2012, level: High }
-      bash:       { name: Unix Shell (BASH), since: 2012, level: High }
+      git:        { name: Git, since: 2012, level: High }
+      bash:       { name: Unix Shell (Bash), since: 2012, level: High }
       cpp:        { name: C++, since: 2014, until: 2017, years: 4, level: Moderate }
       java:       { name: Java, since: 2012, until: 2018, years: 7, level: Moderate }
       go:         { name: Go, since: 2021, until: 2022, years: 1, level: Moderate }
       matlab:     { name: MATLAB, since: 2017, until: 2021, years: 4, level: Moderate }
-      javascript: { name: "Javascript, HTML", since: 2016, level: Moderate }
-      cad:        { name: "Solidworks, Fusion 360", since: 2015, until: 2020, years: 5, level: Moderate }
+      javascript: { name: "JavaScript, HTML", since: 2016, level: Moderate }
+      cad:        { name: "SolidWorks, Fusion 360", since: 2015, until: 2020, years: 5, level: Moderate }
 
   general-skills:
     kind: entry
@@ -340,13 +342,13 @@ sections:
     items:
       software:
         topic: Software Engineering
-        text: python, bash, networking, excel
+        text: Python, Bash, networking, Excel
       electrical:
         topic: Electrical Engineering
         text: power distribution, safety, soldering, crimping, wiring harness construction
       construction:
         topic: Construction
-        text: use of drills/impact drivers, skill saws, chop saws, general woodworking
+        text: use of drills/impact drivers, circular saws, chop saws, general woodworking
       automotive:
         topic: Basic Automotive Maintenance
         text: oil, fluids, filters, wipers, battery replacement
@@ -372,7 +374,7 @@ sections:
       wind-chime:
         text: Helped build the giant wind chime art piece out at the trash fence.
       fluffers:
-        text: Filled in for fluffers when they were short staffed to fill/wash coolers.
+        text: Filled in for fluffers when they were short-staffed to fill/wash coolers.
       sousaphone:
         text: >-
           Sousaphone player for John Bastard's Perfectly Adequate Second-Line Memorial Crash Butthole
@@ -384,5 +386,5 @@ sections:
         text: Ambient musician for Heliotropium, one of the conclave groups
         details:
           - >-
-            Practiced with fire performers for ~6mo before the burn, performed in the inner circle
-            during the man burn.
+            Practiced with fire performers for ~6 months before the burn, and performed in the inner circle
+            during the Man burn.

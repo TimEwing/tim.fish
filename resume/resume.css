@@ -17,7 +17,9 @@
   --font: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-@page { size: Letter; margin: 0.5in 0.6in; }
+/* Top margin is 0 so the browser has no room to print its header (date + title); the 0.5in comes back
+   as .paper padding in print, cloned onto every page. The footer (URL + page number) still fits below. */
+@page { size: Letter; margin: 0 0.6in 0.5in; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -67,33 +69,71 @@ body {
 .paper {
   width: 8.5in;
   max-width: 100%;
-  min-height: 11in;
+  /* --pages is set by fit(): 10in of content per Letter page, plus the 0.5in top/bottom padding. */
+  min-height: calc(var(--pages, 1) * 10in + 1in);
   margin: 0 auto 3rem;
   padding: 0.5in 0.6in;
   background: #fff;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
 }
+/* On screen, mark where the printed pages break. */
+.paper.multipage {
+  /* Second layer is the white sheet itself, so clipping the guide lines doesn't clip the paper. */
+  background-image: linear-gradient(to bottom, transparent calc(10in - 1px), #ccc calc(10in - 1px)), linear-gradient(#fff, #fff);
+  background-size: 100% 10in, 100% 100%;
+  background-repeat: repeat-y, no-repeat;
+  background-origin: content-box, border-box;
+  background-clip: content-box, border-box;
+}
 
 @media print {
   body { background: #fff; }
   .no-print { display: none !important; }
-  .paper { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+  .paper { width: auto; min-height: 0; margin: 0; padding: 0.5in 0 0; box-decoration-break: clone; box-shadow: none; background-image: none !important; }
   a { color: inherit; text-decoration: none; }
 }
 
-@media (max-width: 8.5in) {
+@media screen and (max-width: 8.5in) {   /* "screen": the 7.3in print area would match too */
   .paper { padding: 0.35in 16px; min-height: 0; }
 }
 
 /* ---------- resume content ---------- */
 
-.resume-header { text-align: center; margin-bottom: 0.6rem; }
-.resume-header h1 { margin: 0; font-size: 20pt; font-weight: 600; letter-spacing: 0.02em; }
-.contact { margin: 0.2rem 0 0; color: var(--muted); }
-.contact span + span::before { content: "\00b7"; margin: 0 0.6em; }
+/* Header: name + about line on the left, contact methods as a label/value table on the right. */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.resume-header h1 { margin: 0; font-size: 20pt; font-weight: 600; letter-spacing: 0.02em; line-height: 1.15; }
+.contact { margin: 0.15rem 0 0; color: var(--muted); }
 .contact a { color: inherit; }
+.about > span + span::before { content: "\00b7"; margin: 0 0.6em; }
+.reach {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 0.6em;
+  align-items: baseline;
+  margin: 0;
+  color: var(--ink);
+}
+.contact-label {
+  justify-self: end;
+  color: var(--accent);
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 8.5in) {
+  .resume-header { flex-direction: column; align-items: flex-start; }
+}
 
-.block { margin-top: 0.7rem; }
+/* --gap is set by fit() in resume.js: the extra space handed out to fill the last page. */
+.block { margin-top: calc(0.7rem + 1.5 * var(--gap, 0px)); }
+.block.pinned { break-inside: avoid; }
 .block h2 {
   margin: 0 0 0.3rem;
   padding-bottom: 0.1rem;
@@ -105,7 +145,8 @@ body {
   break-after: avoid;
 }
 
-.entry { margin: 0 0 0.45rem; break-inside: avoid; }
+.entry { margin: 0; break-inside: avoid; }
+.entry + .entry { margin-top: calc(0.45rem + var(--gap, 0px)); }
 .entry-head { display: flex; justify-content: space-between; gap: 1rem; break-after: avoid; }
 .entry-head .when { flex: none; color: var(--muted); }
 

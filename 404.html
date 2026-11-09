@@ -6,13 +6,18 @@
   <title>Not found | tim.fish</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/css/site.css">
+  <script>
+    // Old URLs that moved. GitHub Pages can't redirect, but it serves this page for any missing file.
+    // The resume used to be a static PDF, and that link is still out in the world.
+    if (location.pathname === "/assets/resume_tim_ewing.pdf") location.replace("/resume/");
+  </script>
 </head>
 <body>
   <header class="masthead">
     <a class="site-title" href="/">tim.fish</a>
     <nav>
       <a href="/about/">About</a>
-      <a href="/assets/resume_tim_ewing.pdf">Resume</a>
+      <a href="/resume/">Resume</a>
       <a href="https://github.com/TimEwing">GitHub</a>
     </nav>
   </header>

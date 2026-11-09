@@ -1,4 +1,4 @@
-# The general-purpose resume. Linked from the site as /assets/resume_tim_ewing.pdf.
+# The general-purpose resume. The site links to it at /resume/ (this is the default variant).
 # Everything here uses master.yaml as-is (each section's default `order`).
 title: Resume
 

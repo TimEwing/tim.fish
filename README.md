@@ -10,14 +10,15 @@ about/index.html        About / contact page.
 welcome/index.html      Typewriter "console" intro; its script lives in a <template> on the page.
 projects/<name>/        One page per project (omnichrome, kepler, nh-convert, swri).
 resume/                 Resume as data: master.yaml + variants/*.yaml, rendered by index.html.
-                        Print it to make assets/resume_tim_ewing.pdf. See resume/README.md.
-404.html                Not-found page (GitHub Pages serves it automatically).
+                        Served live at /resume/ (there is no static PDF). See resume/README.md.
+404.html                Not-found page (GitHub Pages serves it automatically). Also redirects old URLs,
+                        like the retired /assets/resume_tim_ewing.pdf, to their new homes.
 
 css/site.css            The only stylesheet. Colors are CSS variables at the top.
 js/typewriter.js        Drives the /welcome/ animation. Conventions are documented in the file header.
 js/vendor/              Vendored third-party JS (js-yaml, for the resume page).
 
-assets/                 Static media: images/, videos/, and PDFs (resume, papers).
+assets/                 Static media: images/, videos/, and PDFs (papers).
 favicon.ico/.png
 CNAME                   Custom domain for GitHub Pages.
 .nojekyll               Tells GitHub Pages to serve files as-is instead of running Jekyll.
