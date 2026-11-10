@@ -50,7 +50,7 @@
 
       <p>Honestly, I still think it kinda looks good, but realistically there's no way it's actually omnichromatic (meaning a unique and spanning set of pixels).</p>
 
-      <p>The newest version is a lot more complex than that original version. In a sentence, it uses a K-D tree to iteratively place the nearest unused pixel in color to the neighbors moving outward from the center. At a high level that isn't too complicated, but the details get pretty messy pretty quickly.</p>
+      <p>The newest version is a lot more complex than that original version. In a sentence, it works outward from the center, filling each pixel with the unused color closest to its neighbors, and uses a K-D tree to find that color quickly. At a high level that isn't too complicated, but the details get pretty messy pretty quickly.</p>
 
       <h2>How to Build an Omnichrome</h2>
 
@@ -86,7 +86,7 @@
 
       <p><em>Starting in the middle of the image, place each pixel from the tree</em></p>
 
-      <p>This part is easier. Since we already have the tree, it's now pretty easy to search it for colors. All we have to do is this:</p>
+      <p>This part is easier. With the tree built, all we have to do is this:</p>
 
       <ol>
         <li>Pick a pixel to place; start at the middle, and spiral outward to the edges.</li>
