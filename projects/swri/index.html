@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Southwest Research Institute | tim.fish</title>
-  <meta name="description" content="Located in Boulder, Colorado where I worked on Lucy, a NASA Discovery class Mission and CYGNSS, a NASA Earth Venture class Mission.">
+  <meta name="description" content="Located in Boulder, Colorado, where I worked on Lucy, a NASA Discovery-class mission, and CYGNSS, a NASA Earth Venture-class mission.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/css/site.css">
 </head>
@@ -25,7 +25,7 @@
       </div>
 
       <h2>SwRI</h2>
-      <p>During my undergraduate degree, I worked part-time at Southwest Research Institute (SwRI) in Boulder, Colorado. The majority of my time was spent on two missions: CYGNSS, a constellation of eight satellites in low Earth orbit, and Lucy, a Discovery class mission on its way to the Trojan asteroids.</p>
+      <p>During my undergraduate degree, I worked part-time at Southwest Research Institute (SwRI) in Boulder, Colorado. The majority of my time was spent on two missions: CYGNSS, a constellation of eight satellites in low Earth orbit, and Lucy, a Discovery-class mission on its way to the Trojan asteroids.</p>
 
       <h2>CYGNSS</h2>
       <p>The Cyclone Global Navigation Satellite System (CYGNSS) is a constellation of eight approximately meter-sized satellites in low Earth orbit. They use a Delay-Doppler Mapping Instrument (DDMI) to map ocean surface wind - that is, they listen to the reflection of GPS signals from the ocean surface and measure the amount of scatter caused by choppy waves to infer the surface wind speed. The data is used primarily to aid hurricane prediction efforts.</p>
@@ -37,21 +37,21 @@
 
       <p>I was initially hired to help take over maintenance of the mission planning system, a Django-based web service which mission planners used to schedule operations of the satellites. I also worked as a Flight Controller on the mission, meaning I was the last human in the line between the commands scheduled by the mission planners and the satellites themselves.</p>
 
-      <p>After about a year at SwRI, I was also tasked with writing a few scripts for the mission's <a href="https://etd.gsfc.nasa.gov/capabilities/capabilities-listing/telemetry-and-command-systems">Integrated Test and Operations System</a> which manages the playback of data during the satellites' ground station overpasses. Scripts I wrote focused especially on data validation and playback; when blocks of data were found to be missing or corrupted after processing, my scripts would generate replay commands and pass them back to ITOS for replay on the next pass. These replays used extra time at the end of each pass in order to eliminate the need for extra planned replay passes. These scripts helped CYGNSS double the frequency of ground passes and reduce the latency between collection and use of data.</p>
+      <p>After about a year at SwRI, I was also tasked with writing a few scripts for the mission's <a href="https://etd.gsfc.nasa.gov/capabilities/capabilities-listing/telemetry-and-command-systems">Integrated Test and Operations System</a> (ITOS), which manages the playback of data during the satellites' ground station overpasses. Scripts I wrote focused especially on data validation and playback; when blocks of data were found to be missing or corrupted after processing, my scripts would generate replay commands and pass them back to ITOS for replay on the next pass. These replays used extra time at the end of each pass in order to eliminate the need for extra planned replay passes. These scripts helped CYGNSS double the frequency of ground passes and reduce the latency between collection and use of data.</p>
 
-      <p>I also authored and co-authored papers while at SwRI, both of which were presented at the IEEE Aerospace Conference. The first paper, <a href="https://ieeexplore.ieee.org/abstract/document/8741926"><em>When You Have More Satellites than People: The Evolution of CYGNSS Flight Operations</em></a> details the process we use to manage the constellation with minimal staff and how we use extensive automation in our process. The second paper, <a href="https://ieeexplore.ieee.org/document/9438383"><em>Django as a Mission Planning Tool Interface for the CYGNSS Mission</em></a>, is a dive into the types of interfaces generally used for mission planning tools and a description of how web development strategies can be used to quickly iterate and test tools for mission planning. A full PDF is available <a href="/assets/cycygnss_paper.pdf">here</a>.</p>
+      <p>I also authored and co-authored papers while at SwRI, both of which were presented at the IEEE Aerospace Conference. The first paper, <a href="https://ieeexplore.ieee.org/abstract/document/8741926"><em>When You Have More Satellites than People: The Evolution of CYGNSS Flight Operations</em></a>, details the process we use to manage the constellation with minimal staff and how we use extensive automation in our process. The second paper, <a href="https://ieeexplore.ieee.org/document/9438383"><em>Django as a Mission Planning Tool Interface for the CYGNSS Mission</em></a>, is a dive into the types of interfaces generally used for mission planning tools and a description of how web development strategies can be used to quickly iterate and test tools for mission planning. A full PDF of the second paper is available <a href="/assets/cycygnss_paper.pdf">here</a>.</p>
 
       <embed class="pdf" src="/assets/cycygnss_paper.pdf" type="application/pdf">
 
       <h2>Lucy</h2>
-      <p>Lucy is a Discovery class mission launched on October 16, 2021. It will fly by a series of Trojan asteroids, objects which orbit out of phase in the same orbit as Jupiter, using a complicated series of gravity assists.</p>
+      <p>Lucy is a Discovery-class mission launched on October 16, 2021. It will fly by a series of Trojan asteroids, objects which orbit out of phase in the same orbit as Jupiter, using a complicated series of gravity assists.</p>
 
       <figure>
         <video src="/assets/videos/lucy_trajectory.mp4" width="100%" autoplay loop muted playsinline></video>
         <figcaption>Lucy's planned trajectory, via <a href="https://svs.gsfc.nasa.gov/4719">NASA's SVS</a>.</figcaption>
       </figure>
 
-      <p>My role on Lucy was very similar to the work I did on CYGNSS; I helped design a mission planning interface using Python/Django from the ground up using lessons learned from the previous version. I built the initial versions of the codebase and helped build out both the backend and frontend. I also contributed to <a href="https://ieeexplore.ieee.org/abstract/document/9438187"><em>Lucy Science Planning: Incorporating Lessons Learned from over a Decade of Space Ops Experience</em></a>, a paper presented at the 2021 IEEE Aerospace Conference.</p>
+      <p>My role on Lucy was very similar to the work I did on CYGNSS; I helped design a Python/Django mission planning interface from the ground up, using lessons learned from the CYGNSS version. I built the initial versions of the codebase and helped build out both the backend and frontend. I also contributed to <a href="https://ieeexplore.ieee.org/abstract/document/9438187"><em>Lucy Science Planning: Incorporating Lessons Learned from over a Decade of Space Ops Experience</em></a>, a paper presented at the 2021 IEEE Aerospace Conference.</p>
     </article>
   </main>
 </body>

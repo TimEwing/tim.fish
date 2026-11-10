@@ -41,7 +41,7 @@
         <li>Upper-left: The (exaggerated) color of what each pixel would see</li>
         <li>Upper-right: The orbit, sun, and planet (to scale)</li>
         <li>Center-right: The non-pixelated image of the planet crossing the star</li>
-        <li>Bottom: The lightcurve of the observation, with simulated noise.</li>
+        <li>Bottom: The lightcurve of the observation, with simulated noise</li>
       </ol>
 
       <p>The program is able to handle all the normal parameters for Keplerian orbits. Here's Jupiter on a completely unrealistic, inclined, comet-like path in front of the Sun:</p>
@@ -54,7 +54,7 @@
 
       <p>I wrote the program in Python and used basically only numpy and matplotlib; no libraries were used for orbital or geometry calculations. There's a ton of 2D and 3D trig involved, and it got pretty nasty pretty quickly. It also includes a hand-built Newton's Method minimum finder since I got sick of trying to analytically solve for the transit point.</p>
 
-      <p>I'm not going to write up the mess that is the geometry involved here, but if you want a taste the code is at <a href="https://github.com/TimEwing/kepler">https://github.com/TimEwing/kepler</a>. There is only one commit, no documentation, and only a few comments but other than the math it's mostly just configuring matplotlib. The whole project was less than 48 hours start-to-finish. The highlight is probably the solution for the circle-circle-square intersection; that chunk of code took the majority of the project's time.</p>
+      <p>I'm not going to write up the mess that is the geometry involved here, but if you want a taste, the code is at <a href="https://github.com/TimEwing/kepler">https://github.com/TimEwing/kepler</a>. There is only one commit, no documentation, and only a few comments, but other than the math it's mostly just configuring matplotlib. The whole project was less than 48 hours start-to-finish. The highlight is probably the solution for the circle-circle-square intersection; that chunk of code took the majority of the project's time.</p>
     </article>
   </main>
 </body>

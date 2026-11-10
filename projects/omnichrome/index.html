@@ -36,7 +36,7 @@
 
       <figure><img src="/assets/images/omni/splat.png" alt=""></figure>
 
-      <p>Every pixel in the images is unique; every possible 7-bit color is there exactly once.</p>
+      <p>Every pixel in the images is unique; every possible color at 7 bits per channel (all 2,097,152 of them) is there exactly once.</p>
 
       <figure><img src="/assets/images/omni/splurt.png" alt=""></figure>
 
@@ -48,7 +48,7 @@
 
       <figure><img src="/assets/images/omni/flower.png" alt="" width="256"></figure>
 
-      <p>Honestly, I still think it kinda looks good but realistically there's no way it's actually omnichromatic (meaning a unique and spanning set of pixels).</p>
+      <p>Honestly, I still think it kinda looks good, but realistically there's no way it's actually omnichromatic (meaning a unique and spanning set of pixels).</p>
 
       <p>The newest version is a lot more complex than that original version. In a sentence, it uses a K-D tree to iteratively place the nearest unused pixel in color to the neighbors moving outward from the center. At a high level that isn't too complicated, but the details get pretty messy pretty quickly.</p>
 
@@ -64,7 +64,7 @@
         <a href="https://en.wikipedia.org/wiki/Voronoi_diagram"><img src="/assets/images/voronoi.svg" alt="Euclidean Voronoi diagram" width="350"></a>
       </figure>
 
-      <p>We're doing the same thing, but we're grouping <em>colorspace</em> instead of normal Euclidean space. However, since humans have three differently colored cones in our eyes, we need three dimensions in our colorspace, so we get more of a Voronoi Cube than a Voronoi Diagram.</p>
+      <p>We're doing the same thing, but we're grouping <em>colorspace</em> instead of normal Euclidean space. However, since humans have three kinds of color-sensing cones in our eyes, we need three dimensions in our colorspace, so we get more of a Voronoi Cube than a Voronoi Diagram.</p>
 
       <p>That's not so hard. We're randomly (<em>stochastically</em>) selecting a bunch of colors, and grouping the rest of the <em>colorspace</em> by which color is closest (<em>Voronoi partitioning</em>). <em>Stochastic 3D Voronoi Partitioning</em>. Neat.</p>
 
@@ -99,7 +99,7 @@
 
       <h3>Step Four: Tune the Result</h3>
 
-      <p>Lots of parameters can be changed and tuned here to make better looking outputs. For example, when making the Voronoi partitions, there's not really a good reason to use the normal Euclidean metric. I found the best results come from using a skewed metric which uses Hue, Saturation, and Value as the basis, treats Hue as circular, and weights distances in Hue stronger when Saturation and Value are higher.</p>
+      <p>Lots of parameters can be changed and tuned here to make better looking outputs. For example, when making the Voronoi partitions, there's not really a good reason to use the normal Euclidean metric. I found the best results come from using a skewed metric which uses Hue, Saturation, and Value as the basis, treats Hue as circular, and weights distances in Hue more heavily when Saturation and Value are higher.</p>
 
       <p>There's also no reason you have to start in the middle and spiral out:</p>
 
